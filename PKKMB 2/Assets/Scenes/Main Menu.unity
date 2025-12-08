@@ -14339,9 +14339,6 @@ MonoBehaviour:
   requiredInputFields:
   - {fileID: 1888666480}
   - {fileID: 146376305}
-  - {fileID: 216487440}
-  - {fileID: 2118110711}
-  - {fileID: 1978575162}
   actionButton: {fileID: 1897410725}
 --- !u!1 &1910747227
 GameObject:
