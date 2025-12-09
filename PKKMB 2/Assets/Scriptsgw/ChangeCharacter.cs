@@ -36,7 +36,7 @@ public class ChangeCharacter : MonoBehaviour
             string value = result.Data["currentChar"].Value; // misalnya "ch001"
             Debug.Log("Dapat ID karakter dari UserData: " + value);
 
-            string path = "Assets/Resources/CharacterImg/"+value+".png";
+            string path = "Assets/Resources/CharacterImg/" + value + ".png";
             Debug.Log(path);
             Sprite characterSprite = Resources.Load<Sprite>("Assets/Resources/CharacterImg/ch001.png");
 
@@ -69,7 +69,8 @@ public class ChangeCharacter : MonoBehaviour
             Data = new Dictionary<string, string>
                         {
                             { "currentChar", idChar}
-                        }
+                        },
+            Permission = UserDataPermission.Public
         };
 
         PlayFabClientAPI.UpdateUserData(updateUserDataRequest,

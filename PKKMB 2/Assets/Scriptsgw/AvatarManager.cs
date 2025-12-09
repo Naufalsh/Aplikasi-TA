@@ -39,7 +39,7 @@ public class AvatarManager : MonoBehaviour
     {
         if (result.Data != null && result.Data.ContainsKey("currentChar"))
         {
-            string value = result.Data["currentChar"].Value; 
+            string value = result.Data["currentChar"].Value;
             Debug.Log("Dapat ID karakter dari UserData: " + value);
 
             string path = $"Character/{value}/Base";
@@ -52,7 +52,7 @@ public class AvatarManager : MonoBehaviour
                 {
                     return;
                 }
-                
+
                 Transform childObject = content.transform.Find("Base(Clone)");
                 if (childObject != null)
                 {
@@ -85,7 +85,8 @@ public class AvatarManager : MonoBehaviour
             Data = new Dictionary<string, string>
                         {
                             { "currentChar", idChar}
-                        }
+                        },
+            Permission = UserDataPermission.Public
         };
 
         PlayFabClientAPI.UpdateUserData(updateUserDataRequest,

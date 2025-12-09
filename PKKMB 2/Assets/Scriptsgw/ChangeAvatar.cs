@@ -64,7 +64,8 @@ public class ChangeAvatar : MonoBehaviour
             Data = new Dictionary<string, string>
                         {
                             { "currentChar", idChar}
-                        }
+                        },
+                        Permission = UserDataPermission.Public
         };
 
         PlayFabClientAPI.UpdateUserData(updateUserDataRequest,

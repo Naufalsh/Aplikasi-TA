@@ -1,0 +1,4244 @@
+[
+    {
+        "group": 101001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            }
+        ]
+    },
+    {
+        "group": 101002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 101003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            }
+        ]
+    },
+    {
+        "group": 101004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            }
+        ]
+    },
+    {
+        "group": 101005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            }
+        ]
+    },
+    {
+        "group": 101006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            }
+        ]
+    },
+    {
+        "group": 101007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            }
+        ]
+    },
+    {
+        "group": 101008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 101009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 101010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 102001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 102002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            }
+        ]
+    },
+    {
+        "group": 102003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            }
+        ]
+    },
+    {
+        "group": 102004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 102005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "5",
+                "Destination": "Ararkula Building "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "9",
+                "Destination": "Pananambulai Building"
+            }
+        ]
+    },
+    {
+        "group": 102006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 102007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 102008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            }
+        ]
+    },
+    {
+        "group": 102009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 102010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            }
+        ]
+    },
+    {
+        "group": 103001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 103002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            }
+        ]
+    },
+    {
+        "group": 103003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            }
+        ]
+    },
+    {
+        "group": 103004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            }
+        ]
+    },
+    {
+        "group": 103005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 103006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            }
+        ]
+    },
+    {
+        "group": 103007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            }
+        ]
+    },
+    {
+        "group": 104001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            }
+        ]
+    },
+    {
+        "group": 104002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 104003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu building/Manufacturing Lab"
+            }
+        ]
+    },
+    {
+        "group": 105001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 105002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "9",
+                "Destination": "Pananambulai Building"
+            }
+        ]
+    },
+    {
+        "group": 105003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            }
+        ]
+    },
+    {
+        "group": 106001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 106002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 201001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            }
+        ]
+    },
+    {
+        "group": 201002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            }
+        ]
+    },
+    {
+        "group": 201003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            }
+        ]
+    },
+    {
+        "group": 201004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            }
+        ]
+    },
+    {
+        "group": 201005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            }
+        ]
+    },
+    {
+        "group": 201006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            }
+        ]
+    },
+    {
+        "group": 201007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            }
+        ]
+    },
+    {
+        "group": 201008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 201009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "20",
+                "Destination": "General Lecture Building"
+            }
+        ]
+    },
+    {
+        "group": 201010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            }
+        ]
+    },
+    {
+        "group": 201011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            }
+        ]
+    },
+    {
+        "group": 202001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "14",
+                "Destination": " Faculty of Communication and Social Sciences "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": " Faculty of Applied Sciences" 
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": " Jogging Track" 
+            }
+        ]
+    },
+    {
+        "group": 202002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "23",
+                "Destination": " Business Center Building "
+            }
+        ]
+    },
+    {
+        "group": 202003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": " Sport Center" 
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffee"  
+
+ 
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            }
+        ]
+    },
+    {
+        "group": 202004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "14",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            }
+        ]
+    },
+    {
+        "group": 202005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 203001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            }
+        ]
+    },
+    {
+        "group": 204001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "22",
+                "Destination": " Syamsul Ulum Mosque"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            }
+        ]
+    },
+    {
+        "group": 204002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Old Faculty of Electrical Engineering"
+            }
+        ]
+    },
+    {
+        "group": 204003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            }
+        ]
+    },
+    {
+        "group": 204004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            }
+        ]
+    },
+    {
+        "group": 301001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            }
+        ]
+    },
+    {
+        "group": 301002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            }
+        ]
+    },
+    {
+        "group": 301003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 301004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            }
+        ]
+    },
+    {
+        "group": 301005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            }
+        ]
+    },
+    {
+        "group": 301006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "21",
+                "Destination": "TULT"
+            }
+        ]
+    },
+    {
+        "group": 301007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 301008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 301009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            }
+        ]
+    },
+    {
+        "group": 301010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 301011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "21",
+                "Destination": "TULT"
+            }
+        ]
+    },
+    {
+        "group": 301012,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "4",
+                "Destination": "Ararkula Building"
+            }
+        ]
+    },
+    {
+        "group": 302001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            }
+        ]
+    },
+    {
+        "group": 302002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "5", 
+                "Destination": "Ararkula Building "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "32",
+                "Destination": "Bamboo Canteen"
+            }
+        ]
+    },
+    {
+        "group": 302003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 303001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            }
+        ]
+    },
+    {
+        "group": 303002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 303003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            }
+        ]
+    },
+    {
+        "group": 303004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            }
+        ]
+    },
+    {
+        "group": 303005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "General Lecture Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 304001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            }
+        ]
+    },
+    {
+        "group": 304002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            }
+        ]
+    },
+    {
+        "group": 305001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Santuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": " Grha Wiyata Cacuk Sudarijanto "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building"
+            }
+        ]
+    },
+    {
+        "group": 305002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            }
+        ]
+    },
+    {
+        "group": 305003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "23",
+                "Destination": "Business Center Building"
+            }
+        ]
+    },
+    {
+        "group": 306001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 401001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            }
+        ]
+    },
+    {
+        "group": 401002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            }
+        ]
+    },
+    {
+        "group": 401003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            }
+        ]
+    },
+    {
+        "group": 401004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "9",
+                "Destination": "PUTI"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "",
+                "Destination": "Ararkula Building "
+            }
+        ]
+    },
+    {
+        "group": 401005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center "
+            }
+        ]
+    },
+    {
+        "group": 401006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            }
+        ]
+    },
+    {
+        "group": 401007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 401008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 401009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 401010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            }
+        ]
+    },
+    {
+        "group": 401011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 401012,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 401013,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 402001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center"
+            }
+        ]
+    },
+    {
+        "group": 402002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 402003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 402004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "6",
+                "Destination": "Deli Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center"
+            }
+        ]
+    },
+    {
+        "group": 402005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            }
+        ]
+    },
+    {
+        "group": 402006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            }
+        ]
+    },
+    {
+        "group": 402007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            }
+        ]
+    },
+    {
+        "group": 402008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 402009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            }
+        ]
+    },
+    {
+        "group": 402010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 402011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 402012,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "23",
+                "Destination": "Business Center Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 403001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 403002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 403003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 404001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            }
+        ]
+    },
+    {
+        "group": 404002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            }
+        ]
+    },
+    {
+        "group": 501001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            }
+        ]
+    },
+    {
+        "group": 501002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            }
+        ]
+    },
+    {
+        "group": 501003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            }
+        ]
+    },
+    {
+        "group": 501004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            }
+        ]
+    },
+    {
+        "group": 501005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "31",
+                "Destination": "Deer pen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            }
+        ]
+    },
+    {
+        "group": 501006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            }
+        ]
+    },
+    {
+        "group": 501007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            }
+        ]
+    },
+    {
+        "group": 501008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            }
+        ]
+    },
+    {
+        "group": 501009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            }
+        ]
+    },
+    {
+        "group": 501010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 501011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": "General Lecture Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 501012,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 501013,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            }
+        ]
+    },
+    {
+        "group": 502001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "20",
+                "Destination": " General Lecture Building "
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "35",
+                "Destination": " Bird Sanctuary "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            }
+        ]
+    },
+    {
+        "group": 502002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosques"
+            }
+        ]
+    },
+    {
+        "group": 502003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "8",
+                "Destination": " Mangudu Building/Manufacturing Lab "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            }
+        ]
+    },
+    {
+        "group": 502004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": " Grha Wiyata Cacuk Sudarijanto "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "17",
+                "Destination": " Faculty of Applied Sciences "
+            }
+        ]
+    },
+    {
+        "group": 503001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            }
+        ]
+    },
+    {
+        "group": 503002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            }
+        ]
+    },
+    {
+        "group": 503003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 503004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            }
+        ]
+    },
+    {
+        "group": 503005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "6",
+                "Destination": "Deli Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 503006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            }
+        ]
+    },
+    {
+        "group": 504001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 504002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            }
+        ]
+    },
+    {
+        "group": 504003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "34",
+                "Destination": "Management System"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            }
+        ]
+    },
+    {
+        "group": 601001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "12",
+                "Destination":"Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 601002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            }
+        ]
+    },
+    {
+        "group": 601003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building(GKU)"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 601004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "23",
+                "Destination": "Business Center Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "34",
+                "Destination": "Management System"
+            }
+        ]
+    },
+    {
+        "group": 601005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "9",
+                "Destination": "Pananambulai Building"
+            }
+        ]
+    },
+    {
+        "group": 601006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            }
+        ]
+    },
+    {
+        "group": 601007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "39",
+                "Destination": "Sport Center"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building "
+            }
+        ]
+    },
+    {
+        "group": 601008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            }
+        ]
+    },
+    {
+        "group": 601009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            }
+        ]
+    },
+    {
+        "group": 601010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 601011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            }
+        ]
+    },
+    {
+        "group": 601012,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "6",
+                "Destination": "Deli Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center "
+            }
+        ]
+    },
+    {
+        "group": 601013,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "16",
+                "Destination": "Faculty of Creative Industry"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            }
+        ]
+    },
+    {
+        "group": 601014,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "5",
+                "Destination": "Ararkula Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 601015,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 602001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "14",
+                "Destination": " Faculty of Communication and Social Sciences "
+            }
+        ]
+    },
+    {
+        "group": 602002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 602003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "34",
+                "Destination": "Management System"
+            }
+        ]
+    },
+    {
+        "group": 602004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 602005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "5",
+                "Destination": "Ararkula Building "
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 602006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "12",
+                "Destination": "Faculty of Economics and Business"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            }
+        ]
+    },
+    {
+        "group": 602007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "20",
+                "Destination": "Tokong Nanas Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "13",
+                "Destination": "Open Library"
+            }
+        ]
+    },
+    {
+        "group": 602008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 602009,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            }
+        ]
+    },
+    {
+        "group": 603001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 603002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "6",
+                "Destination": "Deli Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            }
+        ]
+    },
+    {
+        "group": 603003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center"
+            }
+        ]
+    },
+    {
+        "group": 604001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "34",
+                "Destination": "Management System"
+            }
+        ]
+    },
+    {
+        "group": 604002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            }
+        ]
+    },
+    {
+        "group": 604003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 604004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 604005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 604006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "23",
+                "Destination": "Business Center Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "4",
+                "Destination": "Barung Building"
+            }
+        ]
+    },
+    {
+        "group": 604007,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "9",
+                "Destination": "Pananambulai Building"
+            }
+        ]
+    },
+    {
+        "group": 604008,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 604009,
+        "quests": [
+            {
+                "QuestId": "37",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            }
+        ]
+    },
+    {
+        "group": 604010,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "24",
+                "Destination": "Student Center"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            }
+        ]
+    },
+    {
+        "group": 604011,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 605001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            }
+        ]
+    },
+    {
+        "group": 605002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 605003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Galau Lake"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 701001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "17",
+                "Destination": "Selaru Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            }
+        ]
+    },
+    {
+        "group": 701002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "6",
+                "Destination": "Old Faculty Electrical Engineering"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            }
+        ]
+    },
+    {
+        "group": 701003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "5",
+                "Destination": "Ararkula Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            }
+        ]
+    },
+    {
+        "group": 701004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 702001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            }
+        ]
+    },
+    {
+        "group": 702002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "45",
+                "Destination": "Pendopo Joglo"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            }
+        ]
+    },
+    {
+        "group": 702003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "31",
+                "Destination": "Deer Pen"
+            }
+        ]
+    },
+    {
+        "group": 703001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "20",
+                "Destination": "General Lecture Building"
+            }
+        ]
+    },
+    {
+        "group": 703002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            }
+        ]
+    },
+    {
+        "group": 703003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            }
+        ]
+    },
+    {
+        "group": 704001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "5",
+                "Destination": "Old Faculty Electrical Engineering"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            }
+        ]
+    },
+    {
+        "group": 704002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            }
+        ]
+    },
+    {
+        "group": 704003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "4",
+                "Destination": "Old Faculty Electrical Engineering"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "9",
+                "Destination": "PUTI"
+            }
+        ]
+    },
+    {
+        "group": 704004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 705001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "34",
+                "Destination": "Management System"
+            }
+        ]
+    },
+    {
+        "group": 706001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "1",
+                "Destination": "Rectorate/Bangkit Building"
+            }
+        ]
+    },
+    {
+        "group": 706002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "23",
+                "Destination": "Business Center Building"
+            }
+        ]
+    },
+    {
+        "group": 706003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 706004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "43",
+                "Destination": "Student Affairs"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "29",
+                "Destination": "GreenHouse"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 707001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Sciences"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "42",
+                "Destination": "Danau Galau/Situ techno"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "15",
+                "Destination": "Faculty of Communication and Social Sciences"
+            }
+        ]
+    },
+    {
+        "group": 707002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "35",
+                "Destination": "Bird Sanctuary"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            }
+        ]
+    },
+    {
+        "group": 707003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "25",
+                "Destination": "Multipurpose Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "10",
+                "Destination": "North Kultubai Building"
+            }
+        ]
+    },
+    {
+        "group": 708001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "17",
+                "Destination": "Faculty of Applied Science"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "30",
+                "Destination": "Jogging Track"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "37",
+                "Destination": "Telkom Medika"
+            }
+        ]
+    },
+    {
+        "group": 708002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "1",
+                "Destination": "Bangkit Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            }
+        ]
+    },
+    {
+        "group": 708003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "38",
+                "Destination": "Tel-U Coffe"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "41",
+                "Destination": "TUCH"
+            }
+        ]
+    },
+    {
+        "group": 708004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "6",
+                "Destination": "Deli Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu building/Manufacturing Lab"
+            }
+        ]
+    },
+    {
+        "group": 708005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "24",
+                "Destination": "Student Center Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "3",
+                "Destination": "Panehan Building"
+            }
+        ]
+    },
+    {
+        "group": 709001,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "21",
+                "Destination": "TULT"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "28",
+                "Destination": "Bandung Techno Park Building"
+            }
+        ]
+    },
+    {
+        "group": 709002,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "27",
+                "Destination": "Dormitory Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "33",
+                "Destination": "Bamboo Canteen"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "2",
+                "Destination": "Lingian Hotel"
+            }
+        ]
+    },
+    {
+        "group": 709003,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "26",
+                "Destination": "Damar Building"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "19",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "22",
+                "Destination": "Syamsul Ulum Mosque"
+            }
+        ]
+    },
+    {
+        "group": 709004,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "18",
+                "Destination": "Grha Wiyata Cacuk Sudarijanto"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "7",
+                "Destination": "Karang Building"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "8",
+                "Destination": "Mangudu Building/Manufacturing lab"
+            }
+        ]
+    },
+    {
+        "group": 709005,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pendopo Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "24",
+                "Destination": "Student Center Buildinge"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            }
+        ]
+    },
+    {
+        "group": 709006,
+        "quests": [
+            {
+                "QuestId": "q1",
+                "buildingId": "44",
+                "Destination": "Pengolahan Priangan"
+            },
+            {
+                "QuestId": "q2",
+                "buildingId": "24",
+                "Destination": "Student Center Buildinge"
+            },
+            {
+                "QuestId": "q3",
+                "buildingId": "29",
+                "Destination": "Greenhouse"
+            }
+        ]
+    }
+]

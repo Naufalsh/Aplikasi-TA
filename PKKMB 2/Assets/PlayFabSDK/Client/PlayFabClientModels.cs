@@ -5193,6 +5193,8 @@ namespace PlayFab.ClientModels
         /// Specific value of the user's statistic.
         /// </summary>
         public int StatValue;
+
+        public string Username;
     }
 
     [Serializable]
@@ -7367,6 +7369,9 @@ namespace PlayFab.ClientModels
         /// user email address
         /// </summary>
         public string Email;
+
+        public bool? EmailVerified { get; set; }
+
     }
 
     [Serializable]

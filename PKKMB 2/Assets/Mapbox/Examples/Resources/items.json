@@ -1,0 +1,331 @@
+{
+    "itemList": [
+        {
+            "id": "1",
+            "buildingId": "1",
+            "name": "Bangkit Building",
+            "formal": "Rectorate",
+            "code": "I",
+            "description": "Bangkit Building at Telkom University, also known as the Rectorate Building, functions as the administrative and management center of Telkom University."
+        },
+        {
+            "id": "2",
+            "buildingId":"2",
+            "name": "Lingian Hotel",
+            "formal": "Lingian Building",
+            "code": "L",
+            "description": "Lingian Building is a hotel owned by Telkom University that serves as both accommodation and a souvenir shopping place of Telkom University."
+        },
+        {
+            "id": "3",
+            "buildingId":"3",
+            "name": "Postgraduate",
+            "formal": "Panehan Building",
+            "code": "G",
+            "description": "The Postgraduate Building is a facility dedicated to postgraduate programs, namely Master's (S2) and Doctoral (S3) programs."
+        },
+        {
+            "id": "4",
+            "buildingId":"4",
+            "name": "Old Faculty of Electrical Engineering",
+            "formal": "Barung Building",
+            "code": "N",
+            "description": "Barung Building is one of the Faculty of Electrical Engineering buildings with 3 floors."
+        },
+        {
+            "id": "5",
+            "buildingId":"5",
+            "name": "Old Faculty of Electrical Engineering",
+            "formal": "Ararkula Building",
+            "code": "O",
+            "description": "Ararkula Building is one of the Faculty of Electrical Engineering buildings."
+        },
+        {
+            "id": "6",
+            "buildingId":"6",
+            "name": "Old Faculty of Electrical Engineering",
+            "formal": "Deli Building",
+            "code": "P",
+            "description": "Deli Building is one of the Faculty of Electrical Engineering buildings."
+        },
+        {
+            "id": "7",
+            "buildingId":"7",
+            "name": "Faculty of Industrial Engineering",
+            "formal": "Karang Building",
+            "code": "C",
+            "description": "The Faculty of Industrial Engineering (FRI) is one of the first faculties established at Telkom University. It has five study programs."
+        },
+        {
+            "id": "8",
+            "buildingId":"8",
+            "name": "Manufacturing Lab",
+            "formal": "Mangudu Building",
+            "code": "M",
+            "description": "Mangudu Building, also known as the Manufacturing Process Laboratory Building, is a facility at Telkom University dedicated to Industrial Engineering."
+        },
+        {
+            "id": "9",
+            "buildingId":"9",
+            "name": "Faculty of Informatics (PUTI)",
+            "formal": "Panambulai Building",
+            "code": "D",
+            "description": "A strategic unit under the Rector that serves as the backbone of campus information technology services."
+        },
+        {
+            "id": "10",
+            "buildingId":"10",
+            "name": "Faculty of Informatics (PUTI)",
+            "formal": "North Kultubai Building",
+            "code": "E",
+            "description": "A strategic unit under the Rector that serves as the backbone of campus information technology services."
+        },
+        {
+            "id": "11",
+            "buildingId":"11",
+            "name": "Faculty of Informatics (PUTI)",
+            "formal": "South Kultubai Building",
+            "code": "F",
+            "description": "A strategic unit under the Rector that serves as the backbone of campus information technology services."
+        },
+        {
+            "id": "12",
+            "buildingId":"12",
+            "name": "Faculty of Economics and Business",
+            "formal": "Miossu Building",
+            "code": "",
+            "description": "The Faculty of Economics and Business is a faculty that focuses on the study of Economics and Business."
+        },
+        {
+            "id": "13",
+            "buildingId":"13",
+            "name": "Oplib",
+            "formal": "Manterawu Building",
+            "code": "W",
+            "description": "Telkom University’s Open Library is located in Manterawu Building. This library provides comfortable reading spaces, book collections, and journal access."
+        },
+        {
+            "id": "14",
+            "buildingId":"14",
+            "name": "Faculty of Communication and Social Sciences",
+            "formal": "Kawalusu Building",
+            "code": "A",
+            "description": "The Faculty of Communication and Social Sciences focuses on the development of communication, public relations, and social studies adapted to the digital era."
+        },
+        {
+            "id": "15",
+            "buildingId":"15",
+            "name": "Faculty of Communication and Social Sciences",
+            "formal": "Intata Building",
+            "code": "B",
+            "description": "The Faculty of Communication and Social Sciences focuses on the development of communication, public relations, and social studies adapted to the digital era."
+        },
+        {
+            "id": "16",
+            "buildingId":"16",
+            "name": "Faculty of Creative Industry",
+            "formal": "Sebatik Building",
+            "code": "S",
+            "description": "The Faculty of Creative Industry is one of the faculties at Telkom University focusing on education in Fine Arts and Design."
+        },
+        {
+            "id": "17",
+            "buildingId":"17",
+            "name": "Faculty of Applied Sciences",
+            "formal": "Selaru Building",
+            "code": "U",
+            "description": "The Faculty of Applied Sciences focuses on vocational education to equip students with practical skills and readiness to contribute to the workforce."
+        },
+        {
+            "id": "18",
+            "buildingId":"18",
+            "name": "General Lecture Building",
+            "formal": "Grha Wiyata Cacuk Sudarijanto",
+            "code": "A",
+            "description": "The General Lecture Building is a shared lecture hall that also houses the language center."
+        },
+        {
+            "id": "19",
+            "buildingId":"19",
+            "name": "General Lecture Building",
+            "formal": "Grha Wiyata Cacuk Sudarijanto",
+            "code": "B",
+            "description": "The General Lecture Building is a shared lecture hall that also houses the language center."
+        },
+        {
+            "id": "20",
+            "buildingId":"20",
+            "name": "General Lecture Building",
+            "formal": "Tokong Nanas Building",
+            "code": "T",
+            "description": "The General Lecture Building (GKU), also known as “Tokong Nanas”, is a 10-story shared lecture hall."
+        },
+        {
+            "id": "21",
+            "buildingId":"21",
+            "name": "TULT",
+            "formal": "Landmark Tower",
+            "code": "Z",
+            "description": "TULT is an iconic building of Telkom University housing three faculties: Informatics, Electrical Engineering, and Industrial Engineering."
+        },
+        {
+            "id": "22",
+            "buildingId":"22",
+            "name": "Syamsul Ulum Mosque",
+            "formal": "Syamsul Ulum Mosque",
+            "code": "",
+            "description": "The largest mosque in Telkom University, serving as the center for worship, studies, and Islamic activities."
+        },
+        {
+            "id": "23",
+            "buildingId":"23",
+            "name": "Business Center Building",
+            "formal": "Alor Building",
+            "code": "R",
+            "description": "The Business Center Building is one of the buildings at Telkom University serving as its business hub."
+        },
+        {
+            "id": "24",
+            "buildingId":"24",
+            "name": "Student Center Building",
+            "formal": "Karaweira Building",
+            "code": "",
+            "description": "The Student Center Building often becomes the central place for campus activities such as new student registration, social events, seminars, and student organization meetings."
+        },
+        {
+            "id": "25",
+            "buildingId":"25",
+            "name": "Multipurpose Building",
+            "formal": "Pelampong Building",
+            "code": "H",
+            "description": "The Multipurpose Building of Telkom University is designed flexibly to host various events, ranging from seminars, workshops, exhibitions, to student activities."
+        },
+        {
+            "id": "26",
+            "buildingId":"26",
+            "name": "Auditorium",
+            "formal": "Damar Building",
+            "code": "K",
+            "description": "The Auditorium is an ideal venue for seminars, conferences, and screenings of academic or cultural films."
+        },
+        {
+            "id": "27",
+            "buildingId":"27",
+            "name": "Dormitory Building",
+            "formal": "Dormitory",
+            "code": "",
+            "description": "The Telkom University Dormitory is a residence specifically for freshmen during their first year of study. It consists of 18 buildings, 10 for male and 8 for female students."
+        },
+        {
+            "id": "28",
+            "buildingId":"28",
+            "name": "Bandung Techno Park Building",
+            "formal": "Batek Building",
+            "code": "",
+            "description": "Bandung Techno Park is Telkom University’s innovation and research downstreaming center, serving as a bridge between campus, industry, government, and society."
+        },
+        {
+            "id": "29",
+            "buildingId":"29",
+            "name": "Greenhouse",
+            "formal": "Greenhouse",
+            "code": "",
+            "description": "The Greenhouse serves as the management center for various types of plants."
+        },
+        {
+            "id": "30",
+            "buildingId":"30",
+            "name": "Jogging Track",
+            "formal": "Jogging Track",
+            "code": "",
+            "description": "The Jogging Track is one of the sports facilities featuring running and walking paths at Telkom University."
+        },
+        {
+            "id": "31",
+            "buildingId":"31",
+            "name": "Deer Pen",
+            "formal": "Deer Pen",
+            "code": "The Deer Pen of Telkom University is an area for breeding and maintaining deer within the campus environment."
+        },
+        {
+            "id": "32",
+            "buildingId":"32",
+            "name": "Cowo Canteen",
+            "formal": "Cowo Canteen",
+            "code": "",
+            "description": "A canteen near the Male Dormitory of Telkom University, serving as one of the culinary options on campus."
+        },
+        {
+            "id": "33",
+            "buildingId":"33",
+            "name": "Bamboo Canteen",
+            "formal": "Bamboo Canteen",
+            "code": "",
+            "description": "The Bamboo Canteen is one of the iconic and eco-friendly culinary facilities at Telkom University, located near the Female Dormitory."
+        },
+        {
+            "id": "34",
+            "buildingId":"34",
+            "name": "Management System",
+            "formal": "Management System",
+            "code": "",
+            "description": "The Management System at Telkom University is an eco-friendly waste management center."
+        },
+        {
+            "id": "35",
+            "buildingId":"35",
+            "name": "Bird Sanctuary",
+            "formal": "Bird Sanctuary",
+            "code": "",
+            "description": "This sanctuary serves as a conservation place for various birds, including peacocks, swans, and pigeons."
+        },
+        {
+            "id": "36",
+            "buildingId":"36",
+            "name": "Animal Sanctuary",
+            "formal": "Animal Sanctuary",
+            "code": "",
+            "description": "Tel-U provides an animal breeding facility such as deer, chickens, turkeys, and sheep as an educational and conservation medium."
+        },
+        {
+            "id": "37",
+            "buildingId":"37",
+            "name": "Telkom Medika",
+            "formal": "Telkom Medika",
+            "code": "",
+            "description": "TelkoMedika is a health service center for the entire academic community of Telkom University."
+        },
+        {
+            "id": "38",
+            "buildingId":"38",
+            "name": "Telyu Coffee",
+            "formal": "Telyu Coffee",
+            "code": "",
+            "description": "Tel-U Coffee is a campus café strategically located behind the General Lecture Building (GKU), offering a comfortable atmosphere with a modern and cozy design."
+        },
+        {
+            "id": "39",
+            "buildingId":"39",
+            "name": "Sport Center",
+            "formal": "Sport Center",
+            "code": "",
+            "description": "The Tel-U Sport Center is the main sports facility on campus, located between male and female dormitories, supporting an active lifestyle for the academic community."
+        },
+        {
+            "id": "40",
+            "buildingId":"40",
+            "name": "FEB Building",
+            "formal": "Maratua Building",
+            "code": "D",
+            "description": "Maratua Building (FEB-D) is a lecture and administration building of the Faculty of Economics and Business at Telkom University."
+        },
+        {
+            "id": "41",
+            "buildingId":"41",
+            "name": "TUCH",
+            "formal": "Snail Building",
+            "code": "",
+            "description": "TUCH is used for Telkom University student graduation ceremonies, and it also serves as a center for introducing new students to campus life."
+        }
+    ]
+}

@@ -37,6 +37,10 @@ public class OpenLBScene : MonoBehaviour
         SceneManager.LoadScene("QuizChallenge");
     }
 
+   public void OpenSearch()
+    {
+        SceneManager.LoadScene("GamePlaySearch");
+    }
 
 
 }

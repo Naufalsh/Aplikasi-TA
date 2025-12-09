@@ -150,8 +150,9 @@ public class LBListItem : MonoBehaviour
 
             if (i == 0)
             {
-                // podium1.SetActive(true);
+                podium1.SetActive(true);
                 FillPodium(podium1, playerName, i + 1, entry.StatValue, entry.PlayFabId); // 🟠 DIUBAH
+                Debug.Log("prinnn1" + entry.StatValue);
             }
             else if (i == 1)
             {
@@ -173,7 +174,12 @@ public class LBListItem : MonoBehaviour
 
             Debug.Log($"{entry.Position + 1} - {entry.StatValue} - {playerName}");
         }
-
+        
+        if (leaderboardEntries.Count < 1) //baru
+        {
+            podium1.SetActive(true);
+            FillPodium(podium1, "", 1, 0, "");
+        }
         if (leaderboardEntries.Count < 2)
         {
             podium2.SetActive(true);
@@ -267,26 +273,39 @@ public class LBListItem : MonoBehaviour
 
     void LoadPlayerAvatar(string playFabId, Image avatarImage)
     {
-        if (playFabId == "")
-        {
-            Sprite avatarSprite = Resources.Load<Sprite>($"profile/2D/OkePutih");
-            avatarImage.sprite = avatarSprite;
-            return;
-        }
-        PlayFabClientAPI.GetUserData(new GetUserDataRequest
+        // ✅ SAFETY CHECK
+    if (avatarImage == null)
+        return;
+
+    // ✅ SET AVATAR DEFAULT DULU (WAJIB)
+    Sprite defaultAvatar = Resources.Load<Sprite>("profile/2D/OkePutih");
+    avatarImage.sprite = defaultAvatar;
+
+    // ✅ KALAU PLAYFAB ID KOSONG → STOP (DEFAULT SUDAH KESET)
+    if (string.IsNullOrEmpty(playFabId))
+        return;
+
+    // ✅ SIMPAN ID untuk GUARD async
+    string requestedPlayFabId = playFabId;
+
+    PlayFabClientAPI.GetUserData(
+        new GetUserDataRequest
         {
             PlayFabId = playFabId
         },
         result =>
         {
+            // ✅ GUARD: kalau UI sudah dipakai player lain → STOP
+            if (requestedPlayFabId != playFabId || avatarImage == null)
+                return;
+
             if (result.Data != null && result.Data.ContainsKey("currentChar"))
             {
-                Debug.Log("Cihuyyyyy");
                 string avatarId = result.Data["currentChar"].Value;
                 Debug.Log($"[Avatar] PlayFabId: {playFabId}, avatarId: {avatarId}");
-                // Debug.Log("Cihuyyyyy");
 
                 Sprite avatarSprite = Resources.Load<Sprite>($"profile/2D/{avatarId}");
+
                 if (avatarSprite != null)
                 {
                     avatarImage.sprite = avatarSprite;
@@ -294,15 +313,19 @@ public class LBListItem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning($"[Avatar] Gagal load sprite: UI Design/Character/2D/{avatarId}");
+                    Debug.LogWarning($"[Avatar] Sprite tidak ditemukan: profile/2D/{avatarId}");
                 }
             }
             else
             {
-                Debug.LogWarning($"[Avatar] Tidak ada avatarId untuk {playFabId}");
+                Debug.LogWarning($"[Avatar] currentChar tidak ada untuk {playFabId}");
             }
         },
-        error => Debug.LogError("Gagal ambil avatar: " + error.GenerateErrorReport()));
+        error =>
+        {
+            Debug.LogError("[Avatar] Gagal ambil user data: " + error.GenerateErrorReport());
+        }
+    );
     }
 
 
@@ -323,6 +346,7 @@ public class LBListItem : MonoBehaviour
     public void changeToAlltime()
     {
         leaderboardName = "Leaderboard_AllTime";
+        ResetPodium();
         foreach (Transform child in content)
         {
             Destroy(child.gameObject);
@@ -333,10 +357,36 @@ public class LBListItem : MonoBehaviour
     public void changeDaily()
     {
         leaderboardName = "Leaderboard";
+        ResetPodium();
         foreach (Transform child in content)
         {
             Destroy(child.gameObject);
         }
         GetLeaderboard();
     }
+
+    void ResetPodium()
+{
+    ResetOnePodium(podium1);
+    ResetOnePodium(podium2);
+    ResetOnePodium(podium3);
+}
+
+void ResetOnePodium(GameObject podium)
+{
+    podium.SetActive(false);
+
+    var avatar = podium.transform.Find("Image/AvatarImage")?.GetComponent<Image>();
+    if (avatar != null)
+        avatar.sprite = Resources.Load<Sprite>("profile/2D/OkePutih");
+
+    var name = podium.transform.Find("UsernameText")?.GetComponent<TextMeshProUGUI>();
+    if (name != null)
+        name.text = "-";
+
+    var score = podium.transform.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+    if (score != null)
+        score.text = "0";
+}
+
 }
