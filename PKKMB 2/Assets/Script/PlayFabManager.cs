@@ -5,6 +5,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayFabManager : MonoBehaviour
 {
@@ -45,7 +46,6 @@ public class PlayFabManager : MonoBehaviour
     private string _playFabId;
     private bool isRegist = false;
     private Coroutine _verifCheckCoroutine;
-    
 
     private int[] groupIds = new int[] 
     {
@@ -75,6 +75,9 @@ public class PlayFabManager : MonoBehaviour
 
     [Header("Reset Password Fields")]
     public TMP_InputField resetEmailInput;
+
+    [Header("Type Account")]
+    public Toggle checkboxVisitor;
 
     void Start()
     {
@@ -266,21 +269,51 @@ public class PlayFabManager : MonoBehaviour
     #endregion
 
     #region Helper Functions
-    void UpdateUserCustomData()
+    // Pastikan ada referensi ke Toggle di bagian atas class
+// public Toggle checkboxUmum; 
+
+void UpdateUserCustomData()
+{
+    // 1. Cek status Checkbox (True = Umum, False = Mahasiswa)
+    bool isVisitor = checkboxVisitor.isOn;
+
+    // 2. Siapkan Dictionary data
+    var userData = new Dictionary<string, string>
     {
-        var request = new UpdateUserDataRequest
-        {
-            Data = new Dictionary<string, string>
-            {
-                { "Username", usernameInput.text },
-                { "Fullname", fullnameInput.text },
-                // { "Major", majorInput.text },
-                // { "Faculty", facultyInput.text },
-                { "GroupNumber", GetRandomGroup().ToString() }
-            }
-        };
-        PlayFabClientAPI.UpdateUserData(request, OnDataUpdated, OnError);
+        // --- DATA UMUM (Wajib Semua User) ---
+        { "Username", usernameInput.text },
+        { "Fullname", fullnameInput.text },
+
+        // Tambahkan penanda tipe user agar mudah difilter nanti di dashboard PlayFab
+        { "UserType", isVisitor ? "Visitor" : "Student" }
+    };
+
+    // --- DATA KHUSUS (Logika Percabangan) ---
+    if (isVisitor)
+    {
+        // Jika UMUM: Kirim data kosong atau strip "-"
+        // Ini penting agar key-nya tetap ada (mencegah error null di sisi lain), 
+        // tapi isinya menandakan tidak ada data.
+        userData.Add("Major", "-");
+        userData.Add("Faculty", "-");
+        userData.Add("GroupNumber", "-");
     }
+    else
+    {
+        // Jika MAHASISWA: Ambil data asli dari input field
+        userData.Add("Major", majorInput.text);
+        userData.Add("Faculty", facultyInput.text);
+        userData.Add("GroupNumber", groupNumberInput.text);
+    }
+
+    // 3. Kirim Request ke PlayFab
+    var request = new UpdateUserDataRequest
+    {
+        Data = userData
+    };
+
+    PlayFabClientAPI.UpdateUserData(request, OnDataUpdated, OnError);
+}
 
     void CreateSession()
     {
