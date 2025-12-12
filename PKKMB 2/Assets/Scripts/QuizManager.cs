@@ -140,7 +140,7 @@ public class QuizManager : MonoBehaviour
         {
             if (i < opts.Count)
             {
-                var label = optionToggles[i].GetComponentInChildren<Text>();
+                var label = optionToggles[i].GetComponentInChildren<TextMeshProUGUI>();
                 if (label != null) label.text = opts[i];
 
                 optionToggles[i].gameObject.SetActive(true);
