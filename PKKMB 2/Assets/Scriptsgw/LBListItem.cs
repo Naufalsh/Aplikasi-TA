@@ -10,6 +10,7 @@ public class LBListItem : MonoBehaviour
 {
     private string leaderboardName = "Leaderboard";
     private string leaderboardAllTIme = "Leaderboard_AllTime";
+    private string leaderboardSpesialEvent = "SpesialEvent";
 
     [Header("Leaderboard UI")]
     public GameObject lbListPrefab;
@@ -174,7 +175,7 @@ public class LBListItem : MonoBehaviour
 
             Debug.Log($"{entry.Position + 1} - {entry.StatValue} - {playerName}");
         }
-        
+
         if (leaderboardEntries.Count < 1) //baru
         {
             podium1.SetActive(true);
@@ -274,58 +275,58 @@ public class LBListItem : MonoBehaviour
     void LoadPlayerAvatar(string playFabId, Image avatarImage)
     {
         // ✅ SAFETY CHECK
-    if (avatarImage == null)
-        return;
+        if (avatarImage == null)
+            return;
 
-    // ✅ SET AVATAR DEFAULT DULU (WAJIB)
-    Sprite defaultAvatar = Resources.Load<Sprite>("profile/2D/OkePutih");
-    avatarImage.sprite = defaultAvatar;
+        // ✅ SET AVATAR DEFAULT DULU (WAJIB)
+        Sprite defaultAvatar = Resources.Load<Sprite>("profile/2D/OkePutih");
+        avatarImage.sprite = defaultAvatar;
 
-    // ✅ KALAU PLAYFAB ID KOSONG → STOP (DEFAULT SUDAH KESET)
-    if (string.IsNullOrEmpty(playFabId))
-        return;
+        // ✅ KALAU PLAYFAB ID KOSONG → STOP (DEFAULT SUDAH KESET)
+        if (string.IsNullOrEmpty(playFabId))
+            return;
 
-    // ✅ SIMPAN ID untuk GUARD async
-    string requestedPlayFabId = playFabId;
+        // ✅ SIMPAN ID untuk GUARD async
+        string requestedPlayFabId = playFabId;
 
-    PlayFabClientAPI.GetUserData(
-        new GetUserDataRequest
-        {
-            PlayFabId = playFabId
-        },
-        result =>
-        {
-            // ✅ GUARD: kalau UI sudah dipakai player lain → STOP
-            if (requestedPlayFabId != playFabId || avatarImage == null)
-                return;
-
-            if (result.Data != null && result.Data.ContainsKey("currentChar"))
+        PlayFabClientAPI.GetUserData(
+            new GetUserDataRequest
             {
-                string avatarId = result.Data["currentChar"].Value;
-                Debug.Log($"[Avatar] PlayFabId: {playFabId}, avatarId: {avatarId}");
+                PlayFabId = playFabId
+            },
+            result =>
+            {
+                // ✅ GUARD: kalau UI sudah dipakai player lain → STOP
+                if (requestedPlayFabId != playFabId || avatarImage == null)
+                    return;
 
-                Sprite avatarSprite = Resources.Load<Sprite>($"profile/2D/{avatarId}");
-
-                if (avatarSprite != null)
+                if (result.Data != null && result.Data.ContainsKey("currentChar"))
                 {
-                    avatarImage.sprite = avatarSprite;
-                    Debug.Log($"[Avatar] Berhasil load sprite {avatarId}");
+                    string avatarId = result.Data["currentChar"].Value;
+                    Debug.Log($"[Avatar] PlayFabId: {playFabId}, avatarId: {avatarId}");
+
+                    Sprite avatarSprite = Resources.Load<Sprite>($"profile/2D/{avatarId}");
+
+                    if (avatarSprite != null)
+                    {
+                        avatarImage.sprite = avatarSprite;
+                        Debug.Log($"[Avatar] Berhasil load sprite {avatarId}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[Avatar] Sprite tidak ditemukan: profile/2D/{avatarId}");
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning($"[Avatar] Sprite tidak ditemukan: profile/2D/{avatarId}");
+                    Debug.LogWarning($"[Avatar] currentChar tidak ada untuk {playFabId}");
                 }
-            }
-            else
+            },
+            error =>
             {
-                Debug.LogWarning($"[Avatar] currentChar tidak ada untuk {playFabId}");
+                Debug.LogError("[Avatar] Gagal ambil user data: " + error.GenerateErrorReport());
             }
-        },
-        error =>
-        {
-            Debug.LogError("[Avatar] Gagal ambil user data: " + error.GenerateErrorReport());
-        }
-    );
+        );
     }
 
 
@@ -365,28 +366,39 @@ public class LBListItem : MonoBehaviour
         GetLeaderboard();
     }
 
+    public void changeToEventLb()
+    {
+        leaderboardName = "SpesialEvent";
+        ResetPodium();
+        foreach (Transform child in content)
+        {
+            Destroy(child.gameObject);
+        }
+        GetLeaderboard();
+    }
+
     void ResetPodium()
-{
-    ResetOnePodium(podium1);
-    ResetOnePodium(podium2);
-    ResetOnePodium(podium3);
-}
+    {
+        ResetOnePodium(podium1);
+        ResetOnePodium(podium2);
+        ResetOnePodium(podium3);
+    }
 
-void ResetOnePodium(GameObject podium)
-{
-    podium.SetActive(false);
+    void ResetOnePodium(GameObject podium)
+    {
+        podium.SetActive(false);
 
-    var avatar = podium.transform.Find("Image/AvatarImage")?.GetComponent<Image>();
-    if (avatar != null)
-        avatar.sprite = Resources.Load<Sprite>("profile/2D/OkePutih");
+        var avatar = podium.transform.Find("Image/AvatarImage")?.GetComponent<Image>();
+        if (avatar != null)
+            avatar.sprite = Resources.Load<Sprite>("profile/2D/OkePutih");
 
-    var name = podium.transform.Find("UsernameText")?.GetComponent<TextMeshProUGUI>();
-    if (name != null)
-        name.text = "-";
+        var name = podium.transform.Find("UsernameText")?.GetComponent<TextMeshProUGUI>();
+        if (name != null)
+            name.text = "-";
 
-    var score = podium.transform.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
-    if (score != null)
-        score.text = "0";
-}
+        var score = podium.transform.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+        if (score != null)
+            score.text = "0";
+    }
 
 }
