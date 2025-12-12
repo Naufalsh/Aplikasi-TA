@@ -6,6 +6,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
 using Mapbox.Unity.MeshGeneration.Factories;
+using UnityEngine.EventSystems;
 
 public class GoldenQuestTrigger : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class GoldenQuestTrigger : MonoBehaviour
 
     private string findTheBuildingTemplate =
         "Look around {BUILDING_NAME}, check the box below that you think is correct. Submit your answer to earn bonus points!";
+    private HighlightQuest highlightScript;
 
     DirectionsFactory directionsFactory;
 
@@ -56,6 +58,13 @@ public class GoldenQuestTrigger : MonoBehaviour
     }
     void Start()
     {
+        highlightScript = GetComponentInChildren<HighlightQuest>();
+
+        if (highlightScript == null)
+        {
+            Debug.LogError($"❌ Error di {gameObject.name}: Script HighlightQuest tidak ditemukan di anak-anaknya!");
+        }
+
         currentSessionId = SystemInfo.deviceUniqueIdentifier;
         // CheckStatus();
         // Cari panel Info sama seperti QuestionMark
@@ -99,6 +108,7 @@ public class GoldenQuestTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            highlightScript.SetHighlight(true);
             playerInZone = true;
             Debug.Log("Player masuk ke zona GoldenQuest: " + buildingId);
             CheckStatus();
@@ -118,13 +128,20 @@ public class GoldenQuestTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            highlightScript.SetHighlight(false);
             playerInZone = false;
             Debug.Log("Player keluar dari zona GoldenQuest: " + buildingId);
         }
     }
 
-    private void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
+        if (IsPointerOverUI())
+        {
+            Debug.Log("Gabisa mencet ahihhi");
+            return;
+        }
+
         if (!playerInZone) return; // hanya bisa diklik kalau player ada di zona
 
         if (GameManager.Instance != null && GameManager.Instance.buildingCache.ContainsKey(buildingId))
@@ -164,6 +181,21 @@ public class GoldenQuestTrigger : MonoBehaviour
         {
             Debug.LogWarning("⚠ Data GoldenQuest " + buildingId + " tidak ditemukan di GameManager!");
         }
+    }
+
+    private bool IsPointerOverUI()
+    {
+        // Cek Mouse (Editor)
+        if (EventSystem.current.IsPointerOverGameObject()) return true;
+
+        // Cek Touch (HP)
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return true;
+        }
+
+        return false;
     }
 
     private void SetQuestImage(string questId)

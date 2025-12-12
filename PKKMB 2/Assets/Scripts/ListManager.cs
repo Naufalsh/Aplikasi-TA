@@ -130,71 +130,28 @@ public class ListManager : MonoBehaviour
 // In ListManager.cs
 
     void OnItemSelected(ItemData item)
+{
+    Debug.Log("Clicked on: " + item.name + " (ID: " + item.id + ")");
+
+    // 1. Cek apakah RouteManager ada
+    if (RouteManager.Instance == null)
     {
-        Debug.Log("Clicked on: " + item.name + " (ID: " + item.id + ")");
-
-        if (map == null || player == null || directionsFactory == null)
-        {
-            Debug.LogError("A reference for routing is missing! Cannot create route.");
-            return;
-        }
-
-        BuildingTrigger targetBuilding = null;
-        GoldenQuestTrigger targetNonBuilding = null;
-        
-        // Find the building trigger component in the scene
-        foreach (var building in sceneBuildings)
-        {
-            if (building.buildingId == item.id.ToString())
-            {
-                targetBuilding = building;
-                break;
-            }
-        }
-        foreach (var building in sceneNonBuildings)
-        {
-            if (building.buildingId == item.id.ToString())
-            {
-                targetNonBuilding = building;
-                break;
-            }
-        }
-
-        if (targetBuilding != null)
-        {
-            // --- THIS IS THE ONLY LINE THAT CHANGES ---
-            // Get the position of the PARENT object of the trigger.
-            Vector3 targetPosition = targetBuilding.transform.parent.position;
-
-            // Use that parent position for the route
-
-            directionsFactory.SetRoute(player, targetBuilding.transform,targetBuilding.buildingId);
-            directionsFactory.ShowRoute();
-            
-            if(seachPanel != null)
-            {
-                seachPanel.SetActive(false);
-            }
-        }else if (targetNonBuilding != null)
-        {
-            // --- THIS IS THE ONLY LINE THAT CHANGES ---
-            // Get the position of the PARENT object of the trigger.
-            Vector3 targetPosition = targetNonBuilding.transform.position;
-
-            // Use that parent position for the route
-
-            directionsFactory.SetRoute(player, targetNonBuilding.transform,targetNonBuilding.buildingId);
-            directionsFactory.ShowRoute();
-            
-            if(seachPanel != null)
-            {
-                seachPanel.SetActive(false);
-            }
-        }
-        else
-        {
-            Debug.LogError("Could not find a BuildingTrigger in the scene with ID: " + item.id);
-        }
+        Debug.LogError("RouteManager Instance not found! Pastikan RouteManager ada di Scene.");
+        return;
     }
+
+    // 2. Bersihkan rute lama (opsional, tapi disarankan agar rapi)
+    RouteManager.Instance.ClearRoute();
+
+    // 3. Panggil fungsi RouteManager
+    // Kita tidak perlu mencari transform manual lagi, RouteManager akan mencarinya berdasarkan ID
+    RouteManager.Instance.DrawRouteToBuilding(item.id.ToString());
+
+    // 4. Tutup Panel Search
+    if (seachPanel != null)
+    {
+        seachPanel.SetActive(false);
+    }
+}
     #endregion
 }

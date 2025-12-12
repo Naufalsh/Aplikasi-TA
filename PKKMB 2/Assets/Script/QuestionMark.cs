@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.EventSystems;
 
 public class QuestionMark : MonoBehaviour
 {
@@ -97,8 +98,15 @@ public class QuestionMark : MonoBehaviour
             infoPanel.SetActive(false);
     }
 
-    private void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
+
+        if (IsPointerOverUI())
+        {
+            Debug.Log("🛡 Klik diblokir karena jari sedang di atas UI (Panel/Tombol)");
+            return; // BERHENTI DI SINI. Jangan jalankan kode di bawah.
+        }
+        // -------------------------------
         if (GameManager.Instance != null && GameManager.Instance.buildingCache.ContainsKey(buildingId))
         {
             BuildingData targetBuilding = GameManager.Instance.buildingCache[buildingId];
@@ -140,6 +148,31 @@ public class QuestionMark : MonoBehaviour
         {
             Debug.LogError($"❌ BuildingId {buildingId} tidak ditemukan di GameManager.buildingCache");
         }
+    }
+
+    private bool IsPointerOverUI()
+    {
+        // 1. Cek Mouse (Untuk Editor/PC)
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+
+        // 2. Cek Touch (Untuk HP Android/iOS)
+        // Kita harus cek pointer ID jari yang menyentuh layar
+        if (Input.touchCount > 0)
+        {
+            // Ambil sentuhan pertama (biasanya jari telunjuk)
+            Touch touch = Input.GetTouch(0);
+
+            // Cek apakah jari tersebut sedang nempel di UI
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void SetGedungImage(string buildingId)

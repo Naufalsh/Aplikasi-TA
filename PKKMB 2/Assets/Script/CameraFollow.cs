@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        currentZoom = offset.magnitude; // panjang offset awal
+        currentZoom = offset.magnitude;
     }
 
     void Update()
@@ -39,11 +40,21 @@ public class CameraFollow : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
+                // 2. CEK UI SAAT SENTUHAN PERTAMA KALI
+                // Jika sentuhan awal kena UI, JANGAN mulai dragging.
+                if (IsPointerOverUI(touch)) 
+                {
+                    isDragging = false;
+                    return; 
+                }
+
                 lastTouchPos = touch.position;
                 isDragging = true;
             }
             else if (touch.phase == TouchPhase.Moved && isDragging)
             {
+                // Karena isDragging hanya true jika tidak kena UI di awal,
+                // maka rotasi aman di sini.
                 Vector2 delta = touch.position - lastTouchPos;
                 yaw += delta.x * rotationSpeed * Time.deltaTime;
                 lastTouchPos = touch.position;
@@ -59,6 +70,13 @@ public class CameraFollow : MonoBehaviour
         {
             Touch touch0 = Input.GetTouch(0);
             Touch touch1 = Input.GetTouch(1);
+
+            // 3. CEK UI UNTUK ZOOM
+            // Jika salah satu jari kena UI, batalkan zoom agar tidak aneh
+            if (IsPointerOverUI(touch0) || IsPointerOverUI(touch1))
+            {
+                return;
+            }
 
             Vector2 touch0Prev = touch0.position - touch0.deltaPosition;
             Vector2 touch1Prev = touch1.position - touch1.deltaPosition;
@@ -77,17 +95,29 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null) return;
 
-        // rotasi sekeliling Y
         Quaternion rotation = Quaternion.Euler(0, yaw, 0);
-
-        // vektor offset asli (arah), lalu skalakan dengan currentZoom
         Vector3 direction = rotation * offset.normalized;
         Vector3 desiredPosition = target.position + direction * currentZoom;
 
-        // Smooth follow
         transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
-
-        // Kamera menghadap player
         transform.LookAt(target.position + Vector3.up * 1.5f);
+    }
+
+    // --- 4. FUNGSI HELPER (Sama seperti sebelumnya, tapi dimodifikasi sedikit agar fleksibel) ---
+    private bool IsPointerOverUI(Touch touch)
+    {
+        // Cek ID jari spesifik (Android/iOS)
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        {
+            return true;
+        }
+        
+        // Cek Mouse (Editor testing) - Fallback
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+
+        return false;
     }
 }

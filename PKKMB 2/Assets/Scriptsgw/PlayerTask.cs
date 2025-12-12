@@ -75,6 +75,15 @@ public class PlayerTask : MonoBehaviour
         Debug.Log($"Ditemukan {sceneBuildings.Count} gedung di scene.");
 
         // Memulai alur pengambilan data secara berantai
+    }
+
+    public void LoadPKKMBQuests()
+    {
+        // Pastikan loading UI muncul sebelum proses dimulai
+        if (loading != null) loading.SetActive(true);
+        if (mamah != null) mamah.SetActive(false);
+        
+        Debug.Log("GameModeManager memanggil loading quest PKKMB.");
         StartQuestLoadingProcess();
     }
 
@@ -253,13 +262,13 @@ public class PlayerTask : MonoBehaviour
 
         if (targetBuilding != null)
         {
-            directionsFactory.SetRoute(player, targetBuilding.transform, targetBuilding.buildingId);
-            directionsFactory.ShowRoute();
+            // directionsFactory.SetRoute(player, targetBuilding.transform, targetBuilding.buildingId);
+            // directionsFactory.ShowRoute();
         }
         else if (targetNonBuilding != null)
         {
-            directionsFactory.SetRoute(player, targetNonBuilding.transform, targetNonBuilding.buildingId);
-            directionsFactory.ShowRoute();
+            // directionsFactory.SetRoute(player, targetNonBuilding.transform, targetNonBuilding.buildingId);
+            // directionsFactory.ShowRoute();
         }
         else
         {
