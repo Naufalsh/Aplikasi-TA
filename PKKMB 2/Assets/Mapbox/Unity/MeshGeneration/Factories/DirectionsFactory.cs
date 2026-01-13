@@ -228,5 +228,8 @@ namespace Mapbox.Unity.MeshGeneration.Factories
                 _waypoints[1] = null;
             }
         }
+
+
+        // Speciall
     }
 }

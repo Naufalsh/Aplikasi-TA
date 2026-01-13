@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 5066407673165228962}
   - component: {fileID: 920995677008840629}
   - component: {fileID: 8848994537747536869}
-  - component: {fileID: 2670990716123041055}
+  - component: {fileID: 3179342773686947398}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -979,7 +979,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2670990716123041055
+--- !u!114 &3179342773686947398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405742604672814489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a482e58d7d865164ca29a866531aff18, type: 3}
+  m_Script: {fileID: 11500000, guid: 75a4be638cb51bc46ae7f93c59c435a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 5066407673165228962}
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2670990716123041055}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: infoPanelAnimation, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 1
@@ -2765,7 +2765,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6124807731260172436}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 

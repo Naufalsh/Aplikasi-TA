@@ -11,45 +11,39 @@ public class HighlightQuest : MonoBehaviour
 
     void Start()
     {
-        questMat = GetComponent<MeshRenderer>().material;
-
-        // Ambil emission asli (atau hitam kalau belum ada)
-        if (questMat.IsKeywordEnabled("_EMISSION"))
-            originalEmission = questMat.GetColor("_EmissionColor");
-        else
-            originalEmission = Color.black;
+        Renderer renderer = GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            questMat = renderer.material;
+            // Pastikan material support Emission
+            if (questMat.IsKeywordEnabled("_EMISSION"))
+                originalEmission = questMat.GetColor("_EmissionColor");
+            else
+            {
+                // Jika shader standar belum aktif emission-nya, enable dulu
+                questMat.EnableKeyword("_EMISSION");
+                originalEmission = Color.black;
+            }
+        }
     }
 
     void Update()
     {
-        if (isPlayerNear)
+        if (isPlayerNear && questMat != null)
         {
-            // bikin efek nyala-pudar
             float emissionStrength = (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f;
             Color finalColor = highlightColor * Mathf.LinearToGammaSpace(emissionStrength * 2f);
-
             questMat.SetColor("_EmissionColor", finalColor);
-            questMat.EnableKeyword("_EMISSION");
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Fungsi ini dipanggil otomatis oleh Parent
+    public void SetHighlight(bool status)
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player masuk area quest");
-            isPlayerNear = true;
-        }
-    }
+        isPlayerNear = status;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (!status && questMat != null)
         {
-            Debug.Log("Player keluar area quest");
-            isPlayerNear = false;
-
-            // balikin ke emission normal
             questMat.SetColor("_EmissionColor", originalEmission);
         }
     }

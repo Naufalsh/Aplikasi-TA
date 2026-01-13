@@ -5,6 +5,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayFabManager : MonoBehaviour
 {
@@ -46,8 +47,37 @@ public class PlayFabManager : MonoBehaviour
     private bool isRegist = false;
     private Coroutine _verifCheckCoroutine;
 
+    private int[] groupIds = new int[] 
+    {
+        101001, 101002, 101003, 101004, 101005, 101006, 101007, 101008, 101009, 101010, 
+        102001, 102002, 102003, 102004, 102005, 102006, 102007, 102008, 102009, 102010, 
+        103001, 103002, 103003, 103004, 103005, 103006, 103007, 104001, 104002, 104003, 
+        105001, 105002, 105003, 106001, 106002, 201001, 201002, 201003, 201004, 201005, 
+        201006, 201007, 201008, 201009, 201010, 201011, 202001, 202002, 202003, 202004, 
+        202005, 203001, 204001, 204002, 204003, 204004, 301001, 301002, 301003, 301004, 
+        301005, 301006, 301007, 301008, 301009, 301010, 301011, 301012, 302001, 302002, 
+        302003, 303001, 303002, 303003, 303004, 303005, 304001, 304002, 305001, 305002, 
+        305003, 306001, 401001, 401002, 401003, 401004, 401005, 401006, 401007, 401008, 
+        401009, 401010, 401011, 401012, 401013, 402001, 402002, 402003, 402004, 402005, 
+        402006, 402007, 402008, 402009, 402010, 402011, 402012, 403001, 403002, 403003, 
+        404001, 404002, 501001, 501002, 501003, 501004, 501005, 501006, 501007, 501008, 
+        501009, 501010, 501011, 501012, 501013, 502001, 502002, 502003, 502004, 503001, 
+        503002, 503003, 503004, 503005, 503006, 504001, 504002, 504003, 601001, 601002, 
+        601003, 601004, 601005, 601006, 601007, 601008, 601009, 601010, 601011, 601012, 
+        601013, 601014, 601015, 602001, 602002, 602003, 602004, 602005, 602006, 602007, 
+        602008, 602009, 603001, 603002, 603003, 604001, 604002, 604003, 604004, 604005, 
+        604006, 604007, 604008, 604009, 604010, 604011, 605001, 605002, 605003, 701001, 
+        701002, 701003, 701004, 702001, 702002, 702003, 703001, 703002, 703003, 704001, 
+        704002, 704003, 704004, 705001, 706001, 706002, 706003, 706004, 707001, 707002, 
+        707003, 708001, 708002, 708003, 708004, 708005, 709001, 709002, 709003, 709004, 
+        709005, 709006
+    };
+
     [Header("Reset Password Fields")]
     public TMP_InputField resetEmailInput;
+
+    [Header("Type Account")]
+    public Toggle checkboxVisitor;
 
     void Start()
     {
@@ -239,21 +269,51 @@ public class PlayFabManager : MonoBehaviour
     #endregion
 
     #region Helper Functions
-    void UpdateUserCustomData()
+    // Pastikan ada referensi ke Toggle di bagian atas class
+// public Toggle checkboxUmum; 
+
+void UpdateUserCustomData()
+{
+    // 1. Cek status Checkbox (True = Umum, False = Mahasiswa)
+    bool isVisitor = checkboxVisitor.isOn;
+
+    // 2. Siapkan Dictionary data
+    var userData = new Dictionary<string, string>
     {
-        var request = new UpdateUserDataRequest
-        {
-            Data = new Dictionary<string, string>
-            {
-                { "Username", usernameInput.text },
-                { "Fullname", fullnameInput.text },
-                { "Major", majorInput.text },
-                { "Faculty", facultyInput.text },
-                { "GroupNumber", groupNumberInput.text }
-            }
-        };
-        PlayFabClientAPI.UpdateUserData(request, OnDataUpdated, OnError);
+        // --- DATA UMUM (Wajib Semua User) ---
+        { "Username", usernameInput.text },
+        { "Fullname", fullnameInput.text },
+
+        // Tambahkan penanda tipe user agar mudah difilter nanti di dashboard PlayFab
+        { "UserType", isVisitor ? "Visitor" : "Student" }
+    };
+
+    // --- DATA KHUSUS (Logika Percabangan) ---
+    if (isVisitor)
+    {
+        // Jika UMUM: Kirim data kosong atau strip "-"
+        // Ini penting agar key-nya tetap ada (mencegah error null di sisi lain), 
+        // tapi isinya menandakan tidak ada data.
+        userData.Add("Major", "-");
+        userData.Add("Faculty", "-");
+        userData.Add("GroupNumber", "-");
     }
+    else
+    {
+        // Jika MAHASISWA: Ambil data asli dari input field
+        userData.Add("Major", majorInput.text);
+        userData.Add("Faculty", facultyInput.text);
+        userData.Add("GroupNumber", groupNumberInput.text);
+    }
+
+    // 3. Kirim Request ke PlayFab
+    var request = new UpdateUserDataRequest
+    {
+        Data = userData
+    };
+
+    PlayFabClientAPI.UpdateUserData(request, OnDataUpdated, OnError);
+}
 
     void CreateSession()
     {
@@ -386,4 +446,21 @@ public class PlayFabManager : MonoBehaviour
         if (personalInfoMessageText != null) personalInfoMessageText.text = "";
     }
     #endregion
+
+    public int GetRandomGroup()
+    {
+        if (groupIds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, groupIds.Length);
+            
+            // Langsung mengembalikan nilai (return)
+            return groupIds[randomIndex];
+        }
+        else
+        {
+            Debug.LogError("Array kosong!");
+            return -1; // Mengembalikan -1 jika terjadi error/array kosong
+        }
+    }
+
 }
