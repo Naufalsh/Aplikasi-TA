@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EventTes.unity
     guid: 0f8ed96320b14994b9f9c15b120e0635
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamePlay.unity
     guid: b6a3714b558e614438ede66fda9940e1
   m_configObjects: {}

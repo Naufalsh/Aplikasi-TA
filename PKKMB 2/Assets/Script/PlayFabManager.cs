@@ -422,7 +422,7 @@ void UpdateUserCustomData()
                 }
                 else
                 {
-                    SceneManager.LoadScene("Gameplay");
+                    SceneManager.LoadScene("Gameplay2");
                 }
             }
             else
