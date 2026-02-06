@@ -39,11 +39,27 @@ public class CarauselManager : MonoBehaviour
         contentPanels = panels;
         currentIndex = 0;
 
+        // 🔥 PAKSA SEMUA PANEL AKTIF
+        foreach (GameObject panel in contentPanels)
+        {
+            panel.SetActive(true);
+
+            // pastikan punya CanvasGroup
+            if (!panel.TryGetComponent(out CanvasGroup cg))
+                cg = panel.AddComponent<CanvasGroup>();
+
+            cg.alpha = 1f;
+            cg.blocksRaycasts = true;
+            cg.interactable = true;
+        }
+
         foreach (Transform child in dotsContainer.transform)
             Destroy(child.gameObject);
 
         InitializeDots();
-        ShowContent();
+
+        // ⏱️ TUNDA MODE CAROUSEL
+        StartCoroutine(DelayedCarouselStart());
 
         if (useTimer)
         {
@@ -51,6 +67,14 @@ public class CarauselManager : MonoBehaviour
             CancelInvoke();
             InvokeRepeating(nameof(AutoMoveContent), 1f, 1f);
         }
+    }
+
+    IEnumerator DelayedCarouselStart()
+    {
+        // 🔥 Kasih waktu image load
+        yield return new WaitForSeconds(2f);
+
+        ShowContent();
     }
 
     void InitializeDots()
@@ -111,11 +135,7 @@ public class CarauselManager : MonoBehaviour
         {
             Image img = dotsContainer.transform.GetChild(i).GetComponent<Image>();
 
-            if (i == currentIndex)
-                img.fillAmount = timer / autoMoveTime;
-            else
-                img.fillAmount = 0f;
-
+            img.fillAmount = (i == currentIndex) ? timer / autoMoveTime : 0f;
             img.color = (i == currentIndex) ? Color.white : Color.gray;
         }
     }
@@ -140,7 +160,13 @@ public class CarauselManager : MonoBehaviour
     {
         for (int i = 0; i < contentPanels.Count; i++)
         {
-            contentPanels[i].SetActive(i == currentIndex);
+            CanvasGroup cg = contentPanels[i].GetComponent<CanvasGroup>();
+
+            bool isActive = (i == currentIndex);
+
+            cg.alpha = isActive ? 1f : 0f;
+            cg.blocksRaycasts = isActive;
+            cg.interactable = isActive;
         }
 
         timer = autoMoveTime;

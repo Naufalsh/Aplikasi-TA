@@ -24,7 +24,9 @@ public class EventManager2 : MonoBehaviour
 {
     public TextMeshProUGUI judulEvent;
     public TextMeshProUGUI deskripsiEvent;
-    public Image imageEvent;
+
+    // ⬇️ DIUBAH: Image → RawImage
+    public RawImage imageEvent;
 
     void Start()
     {
@@ -37,19 +39,35 @@ public class EventManager2 : MonoBehaviour
 
     void OnSuccess(GetTitleDataResult result)
     {
-        if (!result.Data.ContainsKey("Events")) return;
+        if (result.Data == null || !result.Data.ContainsKey("Events"))
+        {
+            Debug.LogError("Key 'Events' tidak ada di PlayFab");
+            return;
+        }
+
+        Debug.Log("RAW Events JSON = " + result.Data["Events"]);
 
         string wrapped = "{\"events\":" + result.Data["Events"] + "}";
         EventWrapper wrapper = JsonUtility.FromJson<EventWrapper>(wrapped);
 
-        if (wrapper.events.Length == 0) return;
+        if (wrapper.events == null || wrapper.events.Length == 0)
+        {
+            Debug.LogError("EVENT ARRAY KOSONG");
+            return;
+        }
 
         EventData e = wrapper.events[0];
+
+        Debug.Log("IMAGE URL FROM PLAYFAB = " + e.image);
+
         judulEvent.text = e.title;
         deskripsiEvent.text = e.description;
 
         if (!string.IsNullOrEmpty(e.image))
+        {
+            StopAllCoroutines(); // ⬅️ DITAMBAHKAN
             StartCoroutine(LoadImage(e.image));
+        }
     }
 
     void OnError(PlayFabError error)
@@ -59,17 +77,31 @@ public class EventManager2 : MonoBehaviour
 
     IEnumerator LoadImage(string url)
     {
+        Debug.Log("Load image from: " + url);
+
         UnityWebRequest req = UnityWebRequestTexture.GetTexture(url);
         yield return req.SendWebRequest();
 
-        if (req.result == UnityWebRequest.Result.Success)
+        if (req.result != UnityWebRequest.Result.Success)
         {
-            Texture2D tex = ((DownloadHandlerTexture)req.downloadHandler).texture;
-            imageEvent.sprite = Sprite.Create(
-                tex,
-                new Rect(0, 0, tex.width, tex.height),
-                new Vector2(0.5f, 0.5f)
-            );
+            Debug.LogError("Request error: " + req.error);
+            yield break;
         }
+
+        Texture2D tex = DownloadHandlerTexture.GetContent(req);
+
+        if (tex == null)
+        {
+            Debug.LogError("Texture null - URL bukan direct image");
+            yield break;
+        }
+
+        // ⬇️ INI INTI PERUBAHANNYA (RAWIMAGE)
+        imageEvent.texture = tex;
+
+        // ⬇️ OPSIONAL TAPI DISARANKAN
+        imageEvent.color = Color.white;
+
+        Debug.Log("Image loaded SUCCESS");
     }
 }

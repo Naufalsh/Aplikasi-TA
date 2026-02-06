@@ -24,7 +24,7 @@ public class EventController2 : MonoBehaviour
     public GameObject eventPanelPrefab;
     public CarauselManager carouselManager;
 
-    private List<GameObject> generatedPanels = new List<GameObject>();
+    private readonly List<GameObject> generatedPanels = new List<GameObject>();
 
     void Start()
     {
@@ -50,33 +50,57 @@ public class EventController2 : MonoBehaviour
 
         string eventJson = result.Data["Events"];
         string wrappedJson = "{\"events\":" + eventJson + "}";
+
         EventWrapper2 wrapper = JsonUtility.FromJson<EventWrapper2>(wrappedJson);
 
-        if (wrapper.events == null || wrapper.events.Length == 0)
+        if (wrapper == null || wrapper.events == null || wrapper.events.Length == 0)
         {
             Debug.LogWarning("Data event kosong");
             return;
         }
 
+        // 🔹 Bersihkan panel lama
         foreach (Transform child in contentParent)
+        {
             Destroy(child.gameObject);
-
+        }
         generatedPanels.Clear();
 
-        foreach (var eventData in wrapper.events)
+        // 🔹 Generate panel baru (SEMUA AKTIF)
+        foreach (EventDateu eventData in wrapper.events)
         {
             GameObject panel = Instantiate(eventPanelPrefab, contentParent);
+
+            // 🔥 PAKSA PANEL AKTIF
             panel.SetActive(true);
 
             EventUI2 panelUI = panel.GetComponent<EventUI2>();
-            panelUI.SetData(eventData);
+            if (panelUI == null)
+            {
+                Debug.LogError("EventUI2 tidak ditemukan di prefab EventPanel");
+                continue;
+            }
 
-            panel.SetActive(false);
+            panelUI.SetData(eventData);
 
             generatedPanels.Add(panel);
         }
 
-        carouselManager.SetContents(generatedPanels);
+        // 🔹 Pastikan SEMUA panel tetap aktif (anti carousel off)
+        foreach (GameObject panel in generatedPanels)
+        {
+            panel.SetActive(true);
+        }
+
+        // 🔹 Kirim ke carousel
+        if (carouselManager != null)
+        {
+            carouselManager.SetContents(generatedPanels);
+        }
+        else
+        {
+            Debug.LogWarning("CarouselManager belum di-assign");
+        }
     }
 
     void OnGetTitleDataError(PlayFabError error)

@@ -7,39 +7,67 @@ using System.Collections;
 public class EventUI2 : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI titleText;
-    public TextMeshProUGUI descriptionText;
-    public Image eventImage;
+    [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private RawImage eventImage;
+
+
+    Coroutine loadImageCoroutine;
+
+    private string currentImageUrl;
 
     public void SetData(EventDateu data)
     {
-        if (titleText != null)
-            titleText.text = data.title;
+        titleText.text = data.title;
+        descriptionText.text = data.description;
 
-        if (descriptionText != null)
-            descriptionText.text = data.description;
+        // Reset image setiap SetData
+        eventImage.texture = null;
+        eventImage.color = Color.clear;
 
-        if (eventImage != null && !string.IsNullOrEmpty(data.image))
-            StartCoroutine(LoadImage(data.image));
+        if (string.IsNullOrEmpty(data.image))
+            return;
+
+        currentImageUrl = data.image;
+
+        // ❌ JANGAN stop coroutine lama
+        // ✔️ Biarkan coroutine lama selesai tapi dicek URL-nya
+        loadImageCoroutine = StartCoroutine(LoadImage(data.image));
     }
 
     IEnumerator LoadImage(string url)
     {
-        UnityWebRequest req = UnityWebRequestTexture.GetTexture(url);
-        yield return req.SendWebRequest();
+        using (UnityWebRequest req = UnityWebRequestTexture.GetTexture(url))
+        {
+            yield return req.SendWebRequest();
 
-        if (req.result == UnityWebRequest.Result.Success)
-        {
+            // Panel sudah dihancurkan
+            if (this == null || eventImage == null)
+                yield break;
+
+            // Data sudah berubah (panel dipakai ulang)
+            if (url != currentImageUrl)
+                yield break;
+
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"[EventUI2] Gagal load image: {req.error} | {url}");
+                yield break;
+            }
+
             Texture2D tex = DownloadHandlerTexture.GetContent(req);
-            eventImage.sprite = Sprite.Create(
-                tex,
-                new Rect(0, 0, tex.width, tex.height),
-                new Vector2(0.5f, 0.5f)
-            );
-        }
-        else
-        {
-            Debug.LogError("Gagal load image: " + req.error);
+            eventImage.texture = tex;
+            eventImage.color = Color.white;
+
+            Debug.Log($"[EventUI2] Image loaded OK → {gameObject.name}");
         }
     }
+
+    private void OnDestroy()
+    {
+        if (loadImageCoroutine != null)
+            StopCoroutine(loadImageCoroutine);
+    }
 }
+
+

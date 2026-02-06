@@ -664,7 +664,6 @@ GameObject:
   - component: {fileID: 328103212}
   - component: {fileID: 328103215}
   - component: {fileID: 328103217}
-  - component: {fileID: 328103216}
   - component: {fileID: 328103218}
   m_Layer: 5
   m_Name: EventCarousel
@@ -706,21 +705,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328103211}
   m_CullTransparentMesh: 1
---- !u!114 &328103216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328103211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da204552db8ddfd4f877d34f91b6a14d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentParent: {fileID: 1506852191}
-  eventPanelPrefab: {fileID: 1137757761316048926, guid: dc6b203c6c7ed7143bb9b71e63c73e84, type: 3}
-  carouselManager: {fileID: 328103217}
 --- !u!114 &328103217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,9 +1224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640964846}
-  - component: {fileID: 640964847}
-  - component: {fileID: 640964848}
-  - component: {fileID: 640964849}
   - component: {fileID: 640964850}
   m_Layer: 5
   m_Name: ScriptHolder
@@ -1270,50 +1251,6 @@ RectTransform:
   m_AnchoredPosition: {x: 615.38446, y: 1331.7551}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &640964847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640964845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0a191b9784c9c45884c6c9a608aae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  judulEvent: {fileID: 1172869419}
-  deskripsiEvent: {fileID: 1866952586}
-  imageEvent: {fileID: 1566226707}
---- !u!114 &640964848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640964845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff473a5dd0c872344ba832fa01ec47db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentParent: {fileID: 1470967161}
-  eventPanelPrefab: {fileID: 6401366606474790076, guid: 5761a55088e74e246905c2630c776b01, type: 3}
---- !u!114 &640964849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640964845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b9f38a3e7e57a40bc74bc1d39ea2ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  eventImage: {fileID: 0}
 --- !u!114 &640964850
 MonoBehaviour:
   m_ObjectHideFlags: 0
