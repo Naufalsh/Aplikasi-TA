@@ -380,41 +380,81 @@ public class QuestionMark : MonoBehaviour
 
     public void SubmitScore(int score)
     {
-        CheckSession();
+        // CheckSession();
+        // var statRequest = new UpdatePlayerStatisticsRequest
+        // {
+        //     Statistics = new List<StatisticUpdate>
+        //     {
+        //         new StatisticUpdate
+        //         {
+        //             StatisticName = leaderboardName,
+        //             Value = score
+        //         },
+        //         new StatisticUpdate
+        //         {
+        //             StatisticName = leaderboardAllTIme,
+        //             Value = score
+        //         }
+        //     }
+        // };
+
+        // PlayFabClientAPI.AddUserVirtualCurrency(new PlayFab.ClientModels.AddUserVirtualCurrencyRequest
+        // {
+        //     VirtualCurrency = "CO",
+        //     Amount = score
+        // },
+        // result =>
+        // {
+        //     PlayFabClientAPI.UpdatePlayerStatistics(statRequest,
+        //     result =>
+        //         {
+        //             Debug.Log("Skor berhasil dikirim ke PlayFab!");
+        //         },
+        //         error => Debug.LogError("Gagal kirim skor: " + error.GenerateErrorReport())
+        //     );
+        //     Debug.Log($"Berhasil menambahkan {score} koin. Total koin sekarang: {result.Balance}");
+        // },
+        // error => Debug.LogError("Gagal menambahkan koin: " + error.GenerateErrorReport()));
+
+        Debug.Log($"🔼 Mengirim skor {score} ke PlayFab...");
+
+        // 1. Kirim statistik dulu, jangan gabung dengan currency
         var statRequest = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>
-            {
-                new StatisticUpdate
-                {
-                    StatisticName = leaderboardName,
-                    Value = score
-                },
-                new StatisticUpdate
-                {
-                    StatisticName = leaderboardAllTIme,
-                    Value = score
-                }
-            }
+        {
+            new StatisticUpdate { StatisticName = leaderboardName, Value = score },
+            new StatisticUpdate { StatisticName = leaderboardAllTIme, Value = score }
+        }
         };
 
-        PlayFabClientAPI.AddUserVirtualCurrency(new PlayFab.ClientModels.AddUserVirtualCurrencyRequest
-        {
-            VirtualCurrency = "CO",
-            Amount = score
-        },
-        result =>
-        {
-            PlayFabClientAPI.UpdatePlayerStatistics(statRequest,
-            result =>
-                {
-                    Debug.Log("Skor berhasil dikirim ke PlayFab!");
-                },
-                error => Debug.LogError("Gagal kirim skor: " + error.GenerateErrorReport())
-            );
-            Debug.Log($"Berhasil menambahkan {score} koin. Total koin sekarang: {result.Balance}");
-        },
-        error => Debug.LogError("Gagal menambahkan koin: " + error.GenerateErrorReport()));
+        PlayFabClientAPI.UpdatePlayerStatistics(statRequest,
+            statResult =>
+            {
+                Debug.Log("✅ Statistik berhasil dikirim!");
+
+                // 2. Baru tambahkan currency, tapi tidak wajib berhasil
+                PlayFabClientAPI.AddUserVirtualCurrency(
+                    new AddUserVirtualCurrencyRequest
+                    {
+                        VirtualCurrency = "CO",
+                        Amount = score
+                    },
+                    currencyResult =>
+                    {
+                        Debug.Log($"💰 Berhasil menambahkan {score} CO. Total: {currencyResult.Balance}");
+                    },
+                    error =>
+                    {
+                        Debug.LogWarning("⚠ Currency gagal ditambahkan (tidak masalah): " + error.GenerateErrorReport());
+                    }
+                );
+            },
+            error =>
+            {
+                Debug.LogError("❌ Gagal kirim statistik: " + error.GenerateErrorReport());
+            }
+        );
 
     }
 

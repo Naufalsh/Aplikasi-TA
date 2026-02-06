@@ -50,7 +50,7 @@ public class QuizManager : MonoBehaviour
 
 
     private int score = 0;
-    private const int POINT_PER_CORRECT = 5;
+    private const int POINT_PER_CORRECT = 20;
 
 
     private readonly Dictionary<int, string> selectedAnswers = new Dictionary<int, string>();
@@ -175,7 +175,7 @@ public class QuizManager : MonoBehaviour
         {
             if (t.isOn)
             {
-                var lbl = t.GetComponentInChildren<Text>();
+                var lbl = t.GetComponentInChildren<TextMeshProUGUI>();
                 if (lbl != null) selected = lbl.text;
                 break;
             }
@@ -276,22 +276,27 @@ public class QuizManager : MonoBehaviour
 
     public void FinishQuiz()
     {
-
-
-        NextQuestion();
+        // NextQuestion(); // <-- HAPUS INI (Saran dari perbaikan sebelumnya agar tidak double count)
+        
         Debug.Log("✅ Quiz Finished! Reload scene…");
         SubmitScore(score);
-        totalBenar.text = ((double)score / 5).ToString();
+        
+        // --- PERBAIKAN DI SINI ---
+        // Jangan pakai score / 5. Gunakan jumlah data di correctSet.
+        totalBenar.text = correctSet.Count.ToString(); 
+        // -------------------------
+
         totalPoin.text = score.ToString();
         resultPanel.SetActive(true);
         StartCoroutine(ChangeSceneAfterDelay(3f));
+        
         Debug.Log("total score = " + score);
-        // SceneManager.LoadScene("Gameplay");
+        
         MarkQuizAsCompleted(IdQuest, () =>
-    {
-        Debug.Log("Quiz berhasil ditandai sebagai selesai!");
-        // Kamu bisa tambahkan aksi lain di sini
-    });
+        {
+            Debug.Log("Quiz berhasil ditandai sebagai selesai!");
+        });
+    
 
 
 
