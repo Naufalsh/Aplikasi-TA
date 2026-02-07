@@ -28,8 +28,13 @@ public class CarauselManager : MonoBehaviour
     private float timer;
     private Vector2 touchStartPos;
 
+    public GameObject targetPanel;
+    public float displayTime = 5f;
+
+
     void Start()
     {
+        TampilkanPanelSesaat();
         nextButton.onClick.AddListener(NextContent);
         prevButton.onClick.AddListener(PreviousContent);
     }
@@ -171,5 +176,24 @@ public class CarauselManager : MonoBehaviour
 
         timer = autoMoveTime;
         UpdateDots();
+    }
+
+    public void TampilkanPanelSesaat()
+    {
+        StartCoroutine(ProsesPanel());
+    }
+
+    private IEnumerator ProsesPanel()
+    {
+        // 1. Aktifkan Panel
+        targetPanel.SetActive(true);
+        Debug.Log("Panel Aktif");
+
+        // 2. Tunggu selama X detik
+        yield return new WaitForSeconds(displayTime);
+
+        // 3. Matikan Panel
+        targetPanel.SetActive(false);
+        Debug.Log("Panel Mati");
     }
 }
