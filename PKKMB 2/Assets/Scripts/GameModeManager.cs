@@ -111,17 +111,56 @@ public class GameModeManager : MonoBehaviour
                     break;
 
                 case "PKKMB":
-                    displayText = "Quest Group";
-                    activeModeText.text = displayText;
+                    activeModeText.text = "Quest Group";
 
-                    // Case PKKMB: Loading Utama dimatikan, karena PlayerTask punya loading sendiri ("mamah")
-                    // Jadi ini serah terima jabatan loading.
-                    if (loadingPanel != null) loadingPanel.SetActive(false);
+                    PlayFabClientAPI.GetUserData(
+                        new GetUserDataRequest { Keys = new List<string> { "GroupNumber" } },
+                        resultUser =>
+                        {
+                            // ================= DEBUG LOG (TARUH DI SINI) =================
+                            Debug.Log("PlayFabId (static): " + PlayFab.PlayFabSettings.staticPlayer.PlayFabId);
 
-                    if (playerTask != null)
-                    {
-                        playerTask.LoadPKKMBQuests();
-                    }
+                            Debug.Log("UserData keys: " + (resultUser.Data == null
+                                ? "NULL"
+                                : string.Join(", ", resultUser.Data.Keys)));
+
+                            if (resultUser.Data != null && resultUser.Data.ContainsKey("GroupNumber"))
+                            {
+                                string raw = resultUser.Data["GroupNumber"].Value;
+                                Debug.Log("GroupNumber raw = [" + raw + "] trimmed=[" + (raw ?? "").Trim() + "]");
+                            }
+                            else
+                            {
+                                Debug.Log("GroupNumber key NOT FOUND in UserData");
+                            }
+                            // =============================================================
+
+                            bool eligible = false;
+
+                            if (resultUser.Data != null && resultUser.Data.ContainsKey("GroupNumber"))
+                            {
+                                // FIX aman: Trim
+                                string groupStr = (resultUser.Data["GroupNumber"].Value ?? "").Trim();
+                                eligible = int.TryParse(groupStr, out int groupNumber) && groupNumber > 0;
+                                Debug.Log("Eligible computed = " + eligible);
+                            }
+
+                            if (eligible && playerTask != null)
+                            {
+                                if (loadingPanel != null) loadingPanel.SetActive(false);
+                                playerTask.LoadPKKMBQuests();
+                            }
+                            else
+                            {
+                                ShowDailyFallback("User tidak punya GroupNumber");
+                            }
+                        },
+                        error =>
+                        {
+                            Debug.LogError("Gagal cek GroupNumber: " + error.GenerateErrorReport());
+                            ShowDailyFallback("Error cek GroupNumber");
+                        }
+                    );
                     break;
 
                 default:
@@ -133,6 +172,26 @@ public class GameModeManager : MonoBehaviour
             }
         }
     }
+
+    private void ShowDailyFallback(string reason = "")
+    {
+        Debug.Log($"Fallback ke DailyQuest. Reason: {reason}");
+
+        if (activeModeText != null) activeModeText.text = "Daily Quest";
+
+        if (dailyQuestTask != null)
+        {
+            dailyQuestTask.LoadDailyQuest(() =>
+            {
+                if (loadingPanel != null) loadingPanel.SetActive(false);
+            });
+        }
+        else
+        {
+            if (loadingPanel != null) loadingPanel.SetActive(false);
+        }
+    }
+
 
     void OnError(PlayFabError error)
     {

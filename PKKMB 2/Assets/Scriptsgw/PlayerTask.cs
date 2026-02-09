@@ -6,14 +6,10 @@ using UnityEngine.UI;
 using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
-using Mapbox.Unity.Map;
-using Mapbox.Utils;
-using Mapbox.Unity.MeshGeneration.Factories;
 
 [Serializable]
 public class Questaw
 {
-    // DIUBAH: 'isUnlocked' dihapus karena pengecekan dilakukan di C#
     public string QuestId;
     public string Destination;
     public string buildingId;
@@ -37,59 +33,48 @@ public class PlayerTask : MonoBehaviour
     public TextMeshProUGUI description2;
     public TextMeshProUGUI description3;
 
-    [Header("Quest Start Buttons")]
+    [Header("Quest Start Buttons (GameObject yang ada Button + Text)")]
     public GameObject start1;
     public GameObject start2;
     public GameObject start3;
 
-    private AbstractMap map;
-    private Transform player;
-    private DirectionsFactory directionsFactory;
-    private List<BuildingTrigger> sceneBuildings;
-    private List<GoldenQuestTrigger> sceneNonBuildings;
-    
-    // BARU: Variabel untuk menyimpan daftar ID gedung yang sudah dibuka
-    private List<string> unlockedBuildingIds = new List<string>();
-    public GameObject mamah;
-    public GameObject loading;
-
+    [Header("Done Objects")]
     public GameObject done1;
     public GameObject done2;
     public GameObject done3;
 
-        private void Awake()
-    {
-        map = FindObjectOfType<AbstractMap>();
-        GameObject playerObj = GameObject.Find("PlayerTarget");
-        if (playerObj != null) player = playerObj.transform;
-        directionsFactory = FindObjectOfType<DirectionsFactory>();
+    [Header("Loading UI")]
+    public GameObject mamah;
+    public GameObject loading;
 
-        if (map == null || player == null || directionsFactory == null)
-            Debug.LogError("Komponen routing (Map, Player, or DirectionsFactory) tidak ditemukan!");
-    }
+    [Header("Button Labels")]
+    public string labelStart = "Start";
+    public string labelNavigating = "Navigating";
+
+    // Data
+    private List<string> unlockedBuildingIds = new List<string>();
+    private List<Questaw> currentQuests = new List<Questaw>();
+
+    // State navigasi saat ini (biar tombol punya status)
+    private string activeTargetId = "";
 
     private void Start()
     {
-        sceneNonBuildings = new List<GoldenQuestTrigger>(FindObjectsOfType<GoldenQuestTrigger>());
-        sceneBuildings = new List<BuildingTrigger>(FindObjectsOfType<BuildingTrigger>());
-        Debug.Log($"Ditemukan {sceneBuildings.Count} gedung di scene.");
-
-        // Memulai alur pengambilan data secara berantai
+        // Optional: kamu bisa log kalau perlu
     }
 
     public void LoadPKKMBQuests()
     {
-        // Pastikan loading UI muncul sebelum proses dimulai
         if (loading != null) loading.SetActive(true);
         if (mamah != null) mamah.SetActive(false);
-        
+
         Debug.Log("GameModeManager memanggil loading quest PKKMB.");
         StartQuestLoadingProcess();
     }
 
-    // --- ALUR PENGAMBILAN DATA BERANTAI ---
-
-    // Langkah 1: Ambil GroupNumber pemain
+    // =========================
+    // Chain loading
+    // =========================
     private void StartQuestLoadingProcess()
     {
         Debug.Log("Langkah 1: Mengambil GroupNumber pemain...");
@@ -98,26 +83,26 @@ public class PlayerTask : MonoBehaviour
             {
                 if (result.Data != null && result.Data.ContainsKey("GroupNumber"))
                 {
-                    string groupStr = result.Data["GroupNumber"].Value;
+                    string groupStr = (result.Data["GroupNumber"].Value ?? "").Trim();
                     if (int.TryParse(groupStr, out int groupNumber))
                     {
-                        // DIUBAH: Jika berhasil, panggil Langkah 2 dan teruskan groupNumber
                         GetUnlockBuilding(groupNumber);
                     }
                     else
                     {
                         Debug.LogError("Gagal parse GroupNumber dari UserData: " + groupStr);
+                        EndLoadingUI();
                     }
                 }
                 else
                 {
                     Debug.LogWarning("Pemain tidak memiliki 'GroupNumber' di UserData.");
+                    EndLoadingUI();
                 }
             },
-            OnPlayFabError);
+            error => { OnPlayFabError(error); EndLoadingUI(); });
     }
 
-    // Langkah 2: Ambil data unlockBuilding
     private void GetUnlockBuilding(int groupNumber)
     {
         Debug.Log("Langkah 2: Mengambil data unlockBuilding...");
@@ -126,23 +111,21 @@ public class PlayerTask : MonoBehaviour
             {
                 if (result.Data != null && result.Data.ContainsKey("unlockBuilding"))
                 {
-                    string data = result.Data["unlockBuilding"].Value;
-                    unlockedBuildingIds = new List<string>(data.Split(','));
+                    string data = result.Data["unlockBuilding"].Value ?? "";
+                    unlockedBuildingIds = new List<string>(data.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
                     Debug.Log("Unlocked Buildings Loaded: " + string.Join(", ", unlockedBuildingIds));
                 }
                 else
                 {
-                    unlockedBuildingIds.Clear(); // Pastikan list kosong jika tidak ada data
+                    unlockedBuildingIds.Clear();
                     Debug.Log("No unlockBuilding data found.");
                 }
 
-                // DIUBAH: Jika berhasil (atau tidak ada data), panggil Langkah 3
                 FetchQuestsForGroup(groupNumber);
             },
-            OnPlayFabError);
+            error => { OnPlayFabError(error); EndLoadingUI(); });
     }
 
-    // Langkah 3: Ambil data quest dari CloudScript
     private void FetchQuestsForGroup(int groupNumber)
     {
         Debug.Log($"Langkah 3: Meminta quest untuk grup {groupNumber} dari CloudScript...");
@@ -152,10 +135,9 @@ public class PlayerTask : MonoBehaviour
             FunctionParameter = new { groupCode = groupNumber }
         };
 
-        PlayFabClientAPI.ExecuteCloudScript(request, OnFetchQuestsSuccess, OnPlayFabError);
+        PlayFabClientAPI.ExecuteCloudScript(request, OnFetchQuestsSuccess, error => { OnPlayFabError(error); EndLoadingUI(); });
     }
 
-    // Langkah 4: Terima hasil quest dan panggil UI update
     private void OnFetchQuestsSuccess(ExecuteCloudScriptResult result)
     {
         Debug.Log("Langkah 4: Berhasil menerima data quest dari CloudScript!");
@@ -166,113 +148,169 @@ public class PlayerTask : MonoBehaviour
                 var wrapper = JsonUtility.FromJson<QuestListWrapper>(result.FunctionResult.ToString());
                 if (wrapper != null && wrapper.quests != null)
                 {
-                    // Langkah terakhir: Terapkan ke UI
                     ApplyQuestToUI(wrapper.quests);
+                    return;
                 }
-                else
-                {
-                    Debug.LogError("Hasil JSON dari CloudScript tidak valid atau tidak berisi 'quests'.");
-                }
+
+                Debug.LogError("Hasil JSON dari CloudScript tidak valid atau tidak berisi 'quests'.");
             }
             catch (Exception e)
             {
-                Debug.LogError($"Gagal parse JSON dari CloudScript: {e.Message}. JSON diterima: {result.FunctionResult.ToString()}");
+                Debug.LogError($"Gagal parse JSON dari CloudScript: {e.Message}. JSON diterima: {result.FunctionResult}");
             }
         }
         else
         {
-            Debug.LogWarning("CloudScript berhasil dieksekusi tetapi tidak mengembalikan data. Mungkin grup tidak ditemukan.");
+            Debug.LogWarning("CloudScript tidak mengembalikan data. Mungkin grup tidak ditemukan.");
         }
+
+        EndLoadingUI();
     }
 
-    // Fungsi untuk menampilkan quest ke UI
+    // =========================
+    // UI + status button
+    // =========================
     private void ApplyQuestToUI(List<Questaw> quests)
     {
-        if (quests == null) return;
-        Debug.Log("Langkah 5: Menerapkan quest ke UI dan melakukan pengecekan unlock status.");
+        currentQuests = quests ?? new List<Questaw>();
 
-        // Setup Quest 1
-        if (quests.Count > 0)
+        // QUEST 1
+        if (currentQuests.Count > 0)
         {
-            title1.text = quests[0].Destination;
-            description1.text = "Find the " + quests[0].Destination + " To complete the quests!";
-            start1.SetActive(true);
-            Button button1 = start1.GetComponent<Button>();
-            if (button1 != null)
-            {
-                // DIUBAH: Lakukan pengecekan langsung di sini
-                start1.SetActive(!unlockedBuildingIds.Contains(quests[0].buildingId));
-                done1.SetActive(unlockedBuildingIds.Contains(quests[0].buildingId));
-                button1.onClick.RemoveAllListeners();
-                button1.onClick.AddListener(() => ShowRouteToBuilding(quests[0].buildingId));
-            }
+            title1.text = currentQuests[0].Destination;
+            description1.text = "Find the " + currentQuests[0].Destination + " To complete the quests!";
         }
-        // ... (Lakukan hal yang sama untuk quest 2 dan 3)
-        if (quests.Count > 1)
+        else
         {
-            title2.text = quests[1].Destination;
-            description2.text = "Find the " + quests[1].Destination + " To complete the quests!";
-            start2.SetActive(true);
-            Button button2 = start2.GetComponent<Button>();
-            if (button2 != null)
-            {
-                start2.SetActive(!unlockedBuildingIds.Contains(quests[1].buildingId));
-                done2.SetActive(unlockedBuildingIds.Contains(quests[1].buildingId));
-                button2.onClick.RemoveAllListeners();
-                button2.onClick.AddListener(() => ShowRouteToBuilding(quests[1].buildingId));
-            }
+            title1.text = "-";
+            description1.text = "-";
         }
-        if (quests.Count > 2)
+
+        // QUEST 2
+        if (currentQuests.Count > 1)
         {
-            title3.text = quests[2].Destination;
-            description3.text = "Find the " + quests[2].Destination + " To complete the quests!";
-            start3.SetActive(true);
-            Button button3 = start3.GetComponent<Button>();
-            if (button3 != null)
-            {
-                start3.SetActive(!unlockedBuildingIds.Contains(quests[2].buildingId));
-                done3.SetActive(unlockedBuildingIds.Contains(quests[2].buildingId));
-                button3.onClick.RemoveAllListeners();
-                button3.onClick.AddListener(() => ShowRouteToBuilding(quests[2].buildingId));
-            }
+            title2.text = currentQuests[1].Destination;
+            description2.text = "Find the " + currentQuests[1].Destination + " To complete the quests!";
         }
-        mamah.SetActive(true);
-        loading.SetActive(false);
-    }
-    
-    // Handler Error Umum
-    private void OnPlayFabError(PlayFabError error)
-    {
-        Debug.LogError("Terjadi Error pada PlayFab: " + error.GenerateErrorReport());
+        else
+        {
+            title2.text = "-";
+            description2.text = "-";
+        }
+
+        // QUEST 3
+        if (currentQuests.Count > 2)
+        {
+            title3.text = currentQuests[2].Destination;
+            description3.text = "Find the " + currentQuests[2].Destination + " To complete the quests!";
+        }
+        else
+        {
+            title3.text = "-";
+            description3.text = "-";
+        }
+
+        RefreshQuestButtons();
+
+        if (mamah != null) mamah.SetActive(true);
+        if (loading != null) loading.SetActive(false);
     }
 
-    // Fungsi routing (tidak ada perubahan)
-    public void ShowRouteToBuilding(string targetBuildingId)
+    private void RefreshQuestButtons()
     {
-        Debug.Log("Mencoba menampilkan rute ke gedung ID: " + targetBuildingId);
+        SetSlotUI(0, start1, done1);
+        SetSlotUI(1, start2, done2);
+        SetSlotUI(2, start3, done3);
+    }
 
-        if (map == null || player == null || directionsFactory == null)
+    private void SetSlotUI(int index, GameObject startObj, GameObject doneObj)
+    {
+        if (startObj == null || doneObj == null) return;
+
+        // kalau quest slot tidak ada datanya
+        if (currentQuests == null || index >= currentQuests.Count)
         {
-            Debug.LogError("Referensi untuk routing hilang! Tidak dapat membuat rute.");
+            startObj.SetActive(false);
+            doneObj.SetActive(false);
             return;
         }
 
-        BuildingTrigger targetBuilding = sceneBuildings.FirstOrDefault(b => b.buildingId == targetBuildingId);
-        GoldenQuestTrigger targetNonBuilding = sceneNonBuildings.FirstOrDefault(b => b.buildingId == targetBuildingId);
+        string buildingId = currentQuests[index].buildingId;
+        bool done = unlockedBuildingIds.Contains(buildingId);
+        bool navigatingThis = (!done && !string.IsNullOrEmpty(activeTargetId) && activeTargetId == buildingId);
 
-        if (targetBuilding != null)
+        // show/hide start vs done
+        doneObj.SetActive(done);
+        startObj.SetActive(!done);
+
+        if (done) return; // sudah done, tidak perlu set tombol
+
+        // set text + interactable
+        Button btn = startObj.GetComponent<Button>();
+        TextMeshProUGUI txt = startObj.GetComponentInChildren<TextMeshProUGUI>(true);
+
+        if (txt != null)
+            txt.text = navigatingThis ? labelNavigating : labelStart;
+
+        if (btn != null)
         {
-            // directionsFactory.SetRoute(player, targetBuilding.transform, targetBuilding.buildingId);
-            // directionsFactory.ShowRoute();
+            btn.onClick.RemoveAllListeners();
+
+            // kalau sedang navigating, tombolnya dimatikan biar tidak spam
+            btn.interactable = !navigatingThis;
+
+            // kalau belum navigating, klik untuk mulai navigasi
+            if (!navigatingThis)
+            {
+                btn.onClick.AddListener(() => StartNavigationTo(buildingId));
+            }
         }
-        else if (targetNonBuilding != null)
+    }
+
+    private void StartNavigationTo(string buildingId)
+    {
+        if (string.IsNullOrEmpty(buildingId)) return;
+
+        activeTargetId = buildingId;
+        RefreshQuestButtons();
+
+        if (RouteManager.Instance == null)
         {
-            // directionsFactory.SetRoute(player, targetNonBuilding.transform, targetNonBuilding.buildingId);
-            // directionsFactory.ShowRoute();
+            Debug.LogError("RouteManager.Instance tidak ditemukan!");
+            return;
         }
-        else
-        {
-            Debug.LogError("Tidak dapat menemukan BuildingTrigger/GoldenQuestTrigger di scene dengan ID: " + targetBuildingId);
-        }
+
+        RouteManager.Instance.ClearRoute();
+        RouteManager.Instance.DrawRouteToBuilding(buildingId);
+
+        Debug.Log("Navigating to: " + buildingId);
+    }
+
+    // OPTIONAL: kalau kamu mau saat masuk collider target yang sedang dinavigasi,
+    // status navigating hilang (kembali start atau done tergantung unlockBuilding).
+    // Panggil method ini dari BuildingTrigger.OnTriggerEnter:
+    // PlayerTaskInstance.OnReachedBuilding(buildingId);
+    public void OnReachedBuilding(string buildingId)
+    {
+        if (string.IsNullOrEmpty(buildingId)) return;
+        if (buildingId != activeTargetId) return;
+
+        activeTargetId = "";
+        RefreshQuestButtons();
+
+        // optional: kalau mau clear route saat sampai
+        if (RouteManager.Instance != null)
+            RouteManager.Instance.ClearRoute();
+    }
+
+    private void EndLoadingUI()
+    {
+        if (loading != null) loading.SetActive(false);
+        if (mamah != null) mamah.SetActive(true);
+    }
+
+    private void OnPlayFabError(PlayFabError error)
+    {
+        Debug.LogError("Terjadi Error pada PlayFab: " + error.GenerateErrorReport());
     }
 }

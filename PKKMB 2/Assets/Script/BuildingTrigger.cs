@@ -38,6 +38,8 @@ public class BuildingTrigger : MonoBehaviour
 
         if (!other.CompareTag("Player")) return;
 
+        DailyQuestTask.Instance?.TryAutoCheckin(buildingId);
+
         // Aktifkan question mark
         if (questionMark != null)
         {

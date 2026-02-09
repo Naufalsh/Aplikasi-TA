@@ -415,6 +415,7 @@ public class QuestionMark : MonoBehaviour
         //     Debug.Log($"Berhasil menambahkan {score} koin. Total koin sekarang: {result.Balance}");
         // },
         // error => Debug.LogError("Gagal menambahkan koin: " + error.GenerateErrorReport()));
+
         Debug.Log($"🔼 Mengirim skor {score} ke PlayFab...");
 
         // 1. Kirim statistik dulu, jangan gabung dengan currency
