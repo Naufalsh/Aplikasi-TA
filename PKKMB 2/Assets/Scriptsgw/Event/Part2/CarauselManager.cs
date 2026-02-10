@@ -34,7 +34,7 @@ public class CarauselManager : MonoBehaviour
 
     void Start()
     {
-        TampilkanPanelSesaat();
+        // TampilkanPanelSesaat();
         nextButton.onClick.AddListener(NextContent);
         prevButton.onClick.AddListener(PreviousContent);
     }
