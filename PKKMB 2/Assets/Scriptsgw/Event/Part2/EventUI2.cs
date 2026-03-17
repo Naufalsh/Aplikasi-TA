@@ -10,18 +10,27 @@ public class EventUI2 : MonoBehaviour
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private RawImage eventImage;
+    [SerializeField] private Button navigateButton;
 
+    private EventDateu currentData;
 
     Coroutine loadImageCoroutine;
-
     private string currentImageUrl;
+
+    void Start()
+    {
+        if (navigateButton != null)
+            navigateButton.onClick.AddListener(OnNavigateClicked);
+    }
 
     public void SetData(EventDateu data)
     {
+        currentData = data;
+
         titleText.text = data.title;
         descriptionText.text = data.description;
 
-        // Reset image setiap SetData
+        // reset image
         eventImage.texture = null;
         eventImage.color = Color.clear;
 
@@ -29,9 +38,6 @@ public class EventUI2 : MonoBehaviour
             return;
 
         currentImageUrl = data.image;
-
-        // ❌ JANGAN stop coroutine lama
-        // ✔️ Biarkan coroutine lama selesai tapi dicek URL-nya
         loadImageCoroutine = StartCoroutine(LoadImage(data.image));
     }
 
@@ -41,11 +47,9 @@ public class EventUI2 : MonoBehaviour
         {
             yield return req.SendWebRequest();
 
-            // Panel sudah dihancurkan
             if (this == null || eventImage == null)
                 yield break;
 
-            // Data sudah berubah (panel dipakai ulang)
             if (url != currentImageUrl)
                 yield break;
 
@@ -58,8 +62,34 @@ public class EventUI2 : MonoBehaviour
             Texture2D tex = DownloadHandlerTexture.GetContent(req);
             eventImage.texture = tex;
             eventImage.color = Color.white;
+        }
+    }
 
-            Debug.Log($"[EventUI2] Image loaded OK → {gameObject.name}");
+    public void OnNavigateClicked()
+    {
+        Debug.Log("Navigate diklik → location: " + currentData.location);
+
+        // Pathfinding
+        if (RouteManager.Instance != null)
+        {
+            RouteManager.Instance.DrawRouteToBuilding(currentData.location);
+        }
+        else
+        {
+            Debug.LogError("RouteManager tidak ditemukan");
+        }
+
+        // Cari EventCarousel di scene lalu matikan
+        GameObject carousel = GameObject.Find("EventCarousel");
+
+        if (carousel != null)
+        {
+            carousel.SetActive(false);
+            Debug.Log("EventCarousel ditutup");
+        }
+        else
+        {
+            Debug.LogWarning("EventCarousel tidak ditemukan di scene");
         }
     }
 
@@ -69,5 +99,3 @@ public class EventUI2 : MonoBehaviour
             StopCoroutine(loadImageCoroutine);
     }
 }
-
-

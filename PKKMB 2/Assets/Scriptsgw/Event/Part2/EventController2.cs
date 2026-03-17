@@ -9,6 +9,7 @@ public class EventDateu
     public string title;
     public string description;
     public string image;
+    public string location;
 }
 
 [System.Serializable]
