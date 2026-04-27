@@ -13184,6 +13184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPanel: {fileID: 78782476}
   displayTime: 5
+  eventsRawJson: 
+  eventsLoaded: 0
 --- !u!114 &925619196
 MonoBehaviour:
   m_ObjectHideFlags: 0

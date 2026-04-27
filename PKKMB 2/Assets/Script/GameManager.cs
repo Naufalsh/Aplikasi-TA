@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     public GameObject targetPanel; // Drag panel ke sini lewat Inspector
     public float displayTime = 5f;
 
+    public string eventsRawJson;
+    public bool eventsLoaded = false;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadBuildingData();
+        LoadEvents();
     }
 
     public void RefreshScene()
@@ -94,5 +98,35 @@ public class GameManager : MonoBehaviour
         {
             targetPanel.SetActive(false); // Sembunyikan panel
         }
+    }
+
+    //check Event
+    public void LoadEvents()
+    {
+        PlayFabClientAPI.GetTitleData(
+            new GetTitleDataRequest(),
+            result =>
+            {
+                if (result.Data.ContainsKey("Events"))
+                {
+                    eventsRawJson = result.Data["Events"];
+                    eventsLoaded = true;
+                    Debug.Log("Events loaded");
+                    Debug.Log("RAW EVENTS: " + eventsRawJson);
+                }
+            },
+            error =>
+            {
+                Debug.LogError(error.GenerateErrorReport());
+            });
+    }
+
+    public bool HasEventAtBuilding(string buildingId)
+    {
+        if (!eventsLoaded) return false;
+
+        string normalizedJson = eventsRawJson.Replace(" ", "");
+
+        return normalizedJson.Contains($"\"location\":\"{buildingId}\"");
     }
 }

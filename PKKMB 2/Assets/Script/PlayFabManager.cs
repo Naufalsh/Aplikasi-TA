@@ -230,6 +230,7 @@ public class PlayFabManager : MonoBehaviour
         // Cek email verifikasi setelah login
         isRegist = false;
         GetPlayerProfileAndCheckEmailStatus();
+        // GameManager.Instance.LoadEvents();
     }
 
     void OnPasswordReset(SendAccountRecoveryEmailResult result)

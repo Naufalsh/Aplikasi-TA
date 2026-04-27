@@ -2,12 +2,14 @@ using Mapbox.Unity.MeshGeneration.Factories;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
+using System.Linq;
 
 public class BuildingTrigger : MonoBehaviour
 {
     [SerializeField] public string buildingId;
     private GameObject questionMark;
     private string namaGedung;
+    private GameObject eventMark;
 
     DirectionsFactory directionsFactory;
 
@@ -30,6 +32,15 @@ public class BuildingTrigger : MonoBehaviour
         else
         {
             Debug.LogWarning($"Building tidak punya child QuestionMark!");
+        }
+
+        //EventMarkFinder
+        Transform emTransform = transform.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "EventMark");
+
+        if (emTransform != null)
+        {
+            eventMark = emTransform.gameObject;
+            eventMark.SetActive(false);
         }
     }
 
@@ -59,6 +70,8 @@ public class BuildingTrigger : MonoBehaviour
             directionsFactory.ClearRoute();
         }
 
+        CheckBuildingEvent();
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -71,6 +84,9 @@ public class BuildingTrigger : MonoBehaviour
             questionMark.SetActive(false);
             Debug.Log($"Question mark untuk {buildingId} ditutup");
         }
+
+        //tutup EventMark
+        eventMark?.SetActive(false);
     }
 
     public void UpdateBuildingVisit(string buildingId)
@@ -100,6 +116,15 @@ public class BuildingTrigger : MonoBehaviour
             // Isi panel Info sesuai gedung
             namaGedung = targetBuilding.name;
 
+        }
+    }
+
+    //CheckBuilding Event di gameplay
+    private void CheckBuildingEvent()
+    {
+        if (GameManager.Instance.HasEventAtBuilding(buildingId))
+        {
+            eventMark?.SetActive(true);
         }
     }
 

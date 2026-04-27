@@ -1829,6 +1829,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: aba88b7e5386f634fb85e474185df05d, type: 3}
+    - target: {fileID: 1792037774161164568, guid: 33e9b3c29bb8cec4e9bc3a3865df827e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2310281228892678784, guid: 33e9b3c29bb8cec4e9bc3a3865df827e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 133.751
@@ -1964,6 +1968,10 @@ PrefabInstance:
     - target: {fileID: 7062672148927438436, guid: 33e9b3c29bb8cec4e9bc3a3865df827e, type: 3}
       propertyPath: m_Name
       value: ButtonGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062672148927438436, guid: 33e9b3c29bb8cec4e9bc3a3865df827e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

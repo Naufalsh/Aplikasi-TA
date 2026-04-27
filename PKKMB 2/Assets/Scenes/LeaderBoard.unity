@@ -3294,6 +3294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonGame
       objectReference: {fileID: 0}
+    - target: {fileID: 7062672148927438436, guid: 33e9b3c29bb8cec4e9bc3a3865df827e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7337248358562662664, guid: 33e9b3c29bb8cec4e9bc3a3865df827e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -4759,7 +4763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1907692204
 RectTransform:
   m_ObjectHideFlags: 0
