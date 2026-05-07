@@ -256,6 +256,12 @@ public class QuestionMark : MonoBehaviour
 
     void UpdateQuizButtonUI(bool isCompleted)
     {
+        if (ButtonStartQuiz == null || StartText == null)
+        {
+            Debug.LogWarning("Button quiz sudah destroyed / belum tersedia");
+            return;
+        }
+
         if (isCompleted)
         {
             // Jika sudah selesai

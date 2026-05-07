@@ -5,6 +5,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.Networking;
 using System.Collections;
+using System;
 
 [System.Serializable]
 public class EventData
@@ -12,6 +13,11 @@ public class EventData
     public string title;
     public string description;
     public string image;
+
+    public static implicit operator EventData(EventDataQuiz v)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 [System.Serializable]

@@ -4,8 +4,6 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
 
-
-
 [System.Serializable]
 public class BuildingData
 {
@@ -29,9 +27,13 @@ public class GameManager : MonoBehaviour
     public GameObject targetPanel; // Drag panel ke sini lewat Inspector
     public float displayTime = 5f;
 
+    //Event
     public string eventsRawJson;
     public bool eventsLoaded = false;
-
+    public string currentEventBuildingId;
+    public EventDataQuiz currentSelectedEvent;
+    public List<EventDataQuiz> allEvents = new();
+    //
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -100,26 +102,54 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //check Event
+    //CHECK EVENT
+    // public void LoadEvents()
+    // {
+    //     PlayFabClientAPI.GetTitleData(
+    //         new GetTitleDataRequest(),
+    //         result =>
+    //         {
+    //             if (result.Data.ContainsKey("Events"))
+    //             {
+    //                 eventsRawJson = result.Data["Events"];
+    //                 eventsLoaded = true;
+    //                 Debug.Log("Events loaded");
+    //                 Debug.Log("RAW EVENTS: " + eventsRawJson);
+    //             }
+    //         },
+    //         error =>
+    //         {
+    //             Debug.LogError(error.GenerateErrorReport());
+    //         });
+    // }
+
     public void LoadEvents()
-    {
-        PlayFabClientAPI.GetTitleData(
-            new GetTitleDataRequest(),
-            result =>
+{
+    PlayFabClientAPI.GetTitleData(
+        new GetTitleDataRequest(),
+        result =>
+        {
+            if (result.Data.ContainsKey("Events"))
             {
-                if (result.Data.ContainsKey("Events"))
-                {
-                    eventsRawJson = result.Data["Events"];
-                    eventsLoaded = true;
-                    Debug.Log("Events loaded");
-                    Debug.Log("RAW EVENTS: " + eventsRawJson);
-                }
-            },
-            error =>
-            {
-                Debug.LogError(error.GenerateErrorReport());
-            });
-    }
+                eventsRawJson = result.Data["Events"];
+
+                string wrappedJson = "{ \"events\": " + eventsRawJson + "}";
+
+                EventListWrapper wrapper =
+                    JsonUtility.FromJson<EventListWrapper>(wrappedJson);
+
+                allEvents = wrapper.events;
+
+                eventsLoaded = true;
+
+                Debug.Log("Events loaded: " + allEvents.Count);
+            }
+        },
+        error =>
+        {
+            Debug.LogError(error.GenerateErrorReport());
+        });
+}
 
     public bool HasEventAtBuilding(string buildingId)
     {
@@ -128,5 +158,22 @@ public class GameManager : MonoBehaviour
         string normalizedJson = eventsRawJson.Replace(" ", "");
 
         return normalizedJson.Contains($"\"location\":\"{buildingId}\"");
+    }
+
+    //LOAD EVENT QUIZ
+    public EventDataQuiz GetEventByLocation(string buildingId)
+    {
+        string wrappedJson = "{ \"events\": " + eventsRawJson + "}";
+
+        EventListWrapper wrapper =
+            JsonUtility.FromJson<EventListWrapper>(wrappedJson);
+
+        foreach (var ev in wrapper.events)
+        {
+            if (ev.location == buildingId)
+                return ev;
+        }
+
+        return null;
     }
 }

@@ -128,4 +128,32 @@ public class BuildingTrigger : MonoBehaviour
         }
     }
 
+    private void CheckBuildingEventCompletance()
+    {
+        if (!GameManager.Instance.HasEventAtBuilding(buildingId)) return;
+
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(),
+            result =>
+            {
+                bool completed = false;
+
+                if (result.Data != null &&
+                    result.Data.ContainsKey("CompletedEventMarks"))
+                {
+                    completed = result.Data["CompletedEventMarks"]
+                        .Value.Split(',')
+                        .Contains(buildingId);
+                }
+
+                if (!completed)
+                {
+                    eventMark?.SetActive(true);
+                }
+            },
+            error =>
+            {
+                Debug.LogError(error.GenerateErrorReport());
+            });
+    }
+
 }
