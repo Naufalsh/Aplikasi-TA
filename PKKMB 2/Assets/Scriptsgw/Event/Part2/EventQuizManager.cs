@@ -43,12 +43,23 @@ public class EventQuizManager : MonoBehaviour
     private string leaderboardAllTIme = "Leaderboard_AllTime";
     private string leaderboardSpesialEvent = "SpesialEvent";
 
+    private Color defaultOptionTextColor;
+
 
     void Start()
     {
         currentSessionId = SystemInfo.deviceUniqueIdentifier;
         CheckSession();
         GetQuestSet();
+
+        if (optionToggles != null && optionToggles.Length > 0)
+    {
+        var label = optionToggles[0].GetComponentInChildren<TextMeshProUGUI>();
+        if (label != null)
+        {
+            defaultOptionTextColor = label.color;
+        }
+    }
     }
 
     // void GetQuestSet()
@@ -82,56 +93,57 @@ public class EventQuizManager : MonoBehaviour
     // }
 
     void GetQuestSet()
-{
-    EventDataQuiz currentEvent = GameManager.Instance.currentSelectedEvent;
-
-    if (currentEvent == null)
     {
-        Debug.LogError("Event belum dipilih.");
-        return;
+        EventDataQuiz currentEvent = GameManager.Instance.currentSelectedEvent;
+
+        if (currentEvent == null)
+        {
+            Debug.LogError("Event belum dipilih.");
+            return;
+        }
+
+        if (GameManager.Instance.allEvents == null || GameManager.Instance.allEvents.Count == 0)
+        {
+            Debug.LogError("Daftar semua event kosong.");
+            return;
+        }
+
+        string targetLocation = currentEvent.location;
+
+        questions = GameManager.Instance.allEvents
+            .Where(e =>
+                e.location == targetLocation &&
+                e.quiz != null &&
+                e.quiz.quests != null &&
+                e.quiz.quests.Count > 0)
+            .SelectMany(e => e.quiz.quests)
+            .ToList();
+
+        if (questions.Count == 0)
+        {
+            Debug.LogError("Tidak ada quiz ditemukan untuk gedung ini.");
+            return;
+        }
+
+        Debug.Log($"Total quiz digabung dari gedung {targetLocation}: {questions.Count}");
+
+        currentQuestionIndex = 0;
+        score = 0;
+
+        selectedAnswers.Clear();
+        correctSet.Clear();
+        shuffledOptionsCache.Clear();
+
+        LoadQuestion();
     }
-
-    if (GameManager.Instance.allEvents == null || GameManager.Instance.allEvents.Count == 0)
-    {
-        Debug.LogError("Daftar semua event kosong.");
-        return;
-    }
-
-    string targetLocation = currentEvent.location;
-
-    questions = GameManager.Instance.allEvents
-        .Where(e =>
-            e.location == targetLocation &&
-            e.quiz != null &&
-            e.quiz.quests != null &&
-            e.quiz.quests.Count > 0)
-        .SelectMany(e => e.quiz.quests)
-        .ToList();
-
-    if (questions.Count == 0)
-    {
-        Debug.LogError("Tidak ada quiz ditemukan untuk gedung ini.");
-        return;
-    }
-
-    Debug.Log($"Total quiz digabung dari gedung {targetLocation}: {questions.Count}");
-
-    currentQuestionIndex = 0;
-    score = 0;
-
-    selectedAnswers.Clear();
-    correctSet.Clear();
-    shuffledOptionsCache.Clear();
-
-    LoadQuestion();
-}
 
     void LoadQuestion()
     {
+        questionCounterText.text =
+        $"Question {currentQuestionIndex + 1}/{questions.Count}";
 
-        questionCounterText.text = $"Question {currentQuestionIndex + 1}/{questions.Count}";
-
-        if (questions == null || questions.Count == 0) return;
+        if (questions == null || questions.Count == 0)
+            return;
 
         EventQuest q = questions[currentQuestionIndex];
         questionText.text = q.question;
@@ -148,14 +160,25 @@ public class EventQuizManager : MonoBehaviour
             {
                 optionToggles[i].gameObject.SetActive(true);
 
-                var label = optionToggles[i].GetComponentInChildren<TextMeshProUGUI>();
+                var label =
+                    optionToggles[i].GetComponentInChildren<TextMeshProUGUI>();
+
                 if (label != null)
+                {
+                    // Set teks opsi
                     label.text = opts[i];
+
+                    // RESET warna teks ke warna default setiap kali soal baru dimuat
+                    label.color = Color.black;
+                }
 
                 if (selectedAnswers.TryGetValue(currentQuestionIndex, out var saved))
                     optionToggles[i].isOn = saved == opts[i];
                 else
                     optionToggles[i].isOn = false;
+
+                // Aktifkan kembali toggle
+                optionToggles[i].interactable = true;
             }
             else
             {
@@ -164,8 +187,49 @@ public class EventQuizManager : MonoBehaviour
             }
         }
 
-        // UpdateProgress();
         UpdateNavigationButtons();
+
+        // questionCounterText.text = $"Question {currentQuestionIndex + 1}/{questions.Count}";
+
+        // if (questions == null || questions.Count == 0) return;
+
+        // EventQuest q = questions[currentQuestionIndex];
+        // questionText.text = q.question;
+
+        // if (!shuffledOptionsCache.TryGetValue(currentQuestionIndex, out var opts))
+        // {
+        //     opts = q.options.OrderBy(_ => Random.value).ToList();
+        //     shuffledOptionsCache[currentQuestionIndex] = opts;
+        // }
+
+        // for (int i = 0; i < optionToggles.Length; i++)
+        // {
+        //     if (i < opts.Count)
+        //     {
+        //         optionToggles[i].gameObject.SetActive(true);
+
+        //         var label = optionToggles[i].GetComponentInChildren<TextMeshProUGUI>();
+        //         if (label != null)
+        //             label.text = opts[i];
+
+        //         if (selectedAnswers.TryGetValue(currentQuestionIndex, out var saved))
+        //             optionToggles[i].isOn = saved == opts[i];
+        //         else
+        //             optionToggles[i].isOn = false;
+        //     }
+        //     else
+        //     {
+        //         optionToggles[i].gameObject.SetActive(false);
+        //         optionToggles[i].isOn = false;
+        //     }
+        // }
+
+        // // UpdateProgress();
+        // UpdateNavigationButtons();
+        // for (int i = 0; i < optionToggles.Length; i++)
+        // {
+        //     optionToggles[i].interactable = true;
+        // }
     }
 
     // void UpdateProgress()
@@ -191,11 +255,20 @@ public class EventQuizManager : MonoBehaviour
     {
         SaveCurrentAnswer();
 
-        if (currentQuestionIndex < questions.Count - 1)
-        {
-            currentQuestionIndex++;
-            LoadQuestion();
-        }
+        ShowCorrectAnswer();
+
+        // Nonaktifkan tombol agar tidak bisa ditekan berulang kali
+        nextButton.interactable = false;
+        prevButton.interactable = false;
+        submitButton.interactable = false;
+
+        StartCoroutine(NextQuestionAfterDelay(2f));
+
+        // if (currentQuestionIndex < questions.Count - 1)
+        // {
+        //     currentQuestionIndex++;
+        //     LoadQuestion();
+        // }
     }
 
     public void PrevQuestion()
@@ -258,7 +331,20 @@ public class EventQuizManager : MonoBehaviour
 
     public void ShowFinishConfirmation()
     {
-        finishConfirmationPanel.SetActive(true);
+        // Simpan jawaban terakhir
+        SaveCurrentAnswer();
+
+        // Tampilkan jawaban yang benar
+        ShowCorrectAnswer();
+
+        // Nonaktifkan semua tombol agar tidak bisa ditekan berulang
+        nextButton.interactable = false;
+        prevButton.interactable = false;
+        submitButton.interactable = false;
+
+        // Tunda 2 detik sebelum menampilkan panel konfirmasi selesai
+        StartCoroutine(ShowFinishConfirmationAfterDelay(2f));
+        // finishConfirmationPanel.SetActive(true);
     }
 
     public void HideFinishConfirmation()
@@ -268,18 +354,40 @@ public class EventQuizManager : MonoBehaviour
 
     public void FinishQuiz()
     {
+        // SaveCurrentAnswer();
+
+        // HideFinishConfirmation();
+
+        // totalBenar.text = correctSet.Count.ToString();
+        // totalPoin.text = score.ToString();
+
+        // resultPanel.SetActive(true);
+
+        // SubmitScore(score);
+
+        // StartCoroutine(ReturnToMap());
+
+         // Simpan jawaban terakhir
+    // Simpan jawaban terakhir
         SaveCurrentAnswer();
 
+        // Tutup panel konfirmasi
         HideFinishConfirmation();
 
+        // Isi data hasil quiz terlebih dahulu
         totalBenar.text = correctSet.Count.ToString();
         totalPoin.text = score.ToString();
 
-        resultPanel.SetActive(true);
+        // Tampilkan jawaban benar (teks hijau) pada soal terakhir
+        ShowCorrectAnswer();
 
-        SubmitScore(score);
+        // Nonaktifkan tombol navigasi selama jeda
+        nextButton.interactable = false;
+        prevButton.interactable = false;
+        submitButton.interactable = false;
 
-        StartCoroutine(ReturnToMap());
+        // Tunggu 2 detik, lalu tampilkan result panel
+        StartCoroutine(FinishQuizAfterDelay(2f));
     }
 
     void SubmitScore(int reward)
@@ -305,7 +413,7 @@ public class EventQuizManager : MonoBehaviour
                     Value = score
                 }
             },
-            
+
         };
         PlayFabClientAPI.AddUserVirtualCurrency(
             new AddUserVirtualCurrencyRequest
@@ -359,4 +467,94 @@ public class EventQuizManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Gameplay");
     }
+
+    private System.Collections.IEnumerator NextQuestionAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Aktifkan kembali tombol
+        nextButton.interactable = true;
+        prevButton.interactable = true;
+        submitButton.interactable = true;
+
+        // Pindah ke soal berikutnya
+        if (currentQuestionIndex < questions.Count - 1)
+        {
+            currentQuestionIndex++;
+            LoadQuestion();
+        }
+    }
+
+
+    // TAMBAHKAN method baru ini di dalam class EventQuizManager
+    private void ShowCorrectAnswer()
+    {
+        if (questions == null || questions.Count == 0)
+            return;
+
+        string correctAnswer = questions[currentQuestionIndex].answer;
+        string selectedAnswer = GetSelectedAnswer(); // Simpan jawaban yang dipilih pemain
+
+        for (int i = 0; i < optionToggles.Length; i++)
+        {
+            Toggle toggle = optionToggles[i];
+
+            if (!toggle.gameObject.activeSelf)
+                continue;
+
+            // Ambil komponen teks dari toggle
+            var label = toggle.GetComponentInChildren<TextMeshProUGUI>();
+            if (label == null)
+                continue;
+
+            string optionText = label.text;
+
+            // Pertahankan pilihan pemain (jangan ubah toggle yang dipilih)
+            if (selectedAnswer != null)
+            {
+                toggle.isOn = (optionText == selectedAnswer);
+            }
+
+            // Jika ini jawaban yang benar, ubah warna teks menjadi hijau
+            if (optionText == correctAnswer)
+            {
+                label.color = Color.green;
+            }
+            else
+            {
+                // Reset warna teks untuk opsi lainnya
+                label.color = Color.black;
+            }
+
+            // Nonaktifkan toggle selama 2 detik agar tidak bisa diubah
+            toggle.interactable = false;
+        }
+    }
+
+    private System.Collections.IEnumerator ShowFinishConfirmationAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Aktifkan kembali tombol
+        nextButton.interactable = true;
+        prevButton.interactable = true;
+        submitButton.interactable = true;
+
+        // Tampilkan panel konfirmasi finish
+        finishConfirmationPanel.SetActive(true);
+    }
+
+private System.Collections.IEnumerator FinishQuizAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    // Tampilkan panel hasil
+    resultPanel.SetActive(true);
+
+    // Kirim skor ke PlayFab
+    SubmitScore(score);
+
+    // Kembali ke map setelah 3 detik
+    StartCoroutine(ReturnToMap());
+}
 }
