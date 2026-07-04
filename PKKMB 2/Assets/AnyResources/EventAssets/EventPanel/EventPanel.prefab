@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.99926, y: -236}
+  m_AnchoredPosition: {x: 0.99926, y: -286}
   m_SizeDelta: {x: 687.6992, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3826686153980640313
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Event desc
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ac37895a2df36c4d9eb0d018beeb2d4, type: 2}
   m_sharedMaterial: {fileID: 5017396127380285020, guid: 1ac37895a2df36c4d9eb0d018beeb2d4, type: 2}
@@ -354,8 +354,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 20
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 5b985f750681c614ab261ef5c7663c11, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -538,7 +538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -115.06422, y: -90.47696}
+  m_AnchoredPosition: {x: -115.06422, y: -73}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1193058717646364624
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Event Title
+  m_text: abc
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b56307f379af652478dc0deb51a23eaa, type: 2}
   m_sharedMaterial: {fileID: -772831844064773962, guid: b56307f379af652478dc0deb51a23eaa, type: 2}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 20
+  m_fontSizeMin: 10
   m_fontSizeMax: 30
   m_fontStyle: 1
   m_HorizontalAlignment: 1
@@ -673,7 +673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000021935, y: -398}
+  m_AnchoredPosition: {x: -0.000021935, y: -456}
   m_SizeDelta: {x: 293.8112, y: 73.5029}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1101803321309199681

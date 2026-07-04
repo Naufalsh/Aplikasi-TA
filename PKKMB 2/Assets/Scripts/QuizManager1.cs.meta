@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c1455583441257449b2707e782631639
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - questionDatabase: {fileID: 11400000, guid: 8404a97339192b1468fc240bfde5338e, type: 2}
+  - questionText: {instanceID: 0}
+  - progressFill: {instanceID: 0}
+  - finishConfirmationPanel: {instanceID: 0}
+  - quizAnimator: {instanceID: 0}
+  - quizCanvasGroup: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

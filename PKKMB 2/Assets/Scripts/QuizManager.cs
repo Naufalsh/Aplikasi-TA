@@ -44,6 +44,11 @@ public class QuizManager : MonoBehaviour
     public Button nextButton;
     public Button submitButton;
 
+    [Header("UI Yang Diubah Setelah Delay")]
+    public GameObject[] objectsToEnable;
+    public GameObject[] objectsToDisable;
+
+
 
     private List<Quests> questions;
     private int currentQuestionIndex = 0;
@@ -128,28 +133,36 @@ public class QuizManager : MonoBehaviour
         var q = questions[currentQuestionIndex];
         questionText.text = q.question;
 
-
         if (!shuffledOptionsCache.TryGetValue(currentQuestionIndex, out var opts))
         {
             opts = q.options.OrderBy(_ => UnityEngine.Random.value).ToList();
             shuffledOptionsCache[currentQuestionIndex] = opts;
         }
 
-
         for (int i = 0; i < optionToggles.Length; i++)
         {
             if (i < opts.Count)
             {
                 var label = optionToggles[i].GetComponentInChildren<TextMeshProUGUI>();
-                if (label != null) label.text = opts[i];
+
+                if (label != null)
+                {
+                    // Set teks opsi
+                    label.text = opts[i];
+
+                    // Reset warna teks menjadi hitam
+                    label.color = Color.black;
+                }
 
                 optionToggles[i].gameObject.SetActive(true);
-
 
                 if (selectedAnswers.TryGetValue(currentQuestionIndex, out var saved))
                     optionToggles[i].isOn = (saved == opts[i]);
                 else
                     optionToggles[i].isOn = false;
+
+                // Aktifkan kembali toggle
+                optionToggles[i].interactable = true;
             }
             else
             {
@@ -159,6 +172,11 @@ public class QuizManager : MonoBehaviour
         }
 
         UpdateProgress();
+
+        // Update tombol navigasi
+        prevButton.gameObject.SetActive(currentQuestionIndex > 0);
+        nextButton.gameObject.SetActive(currentQuestionIndex < questions.Count - 1);
+        submitButton.gameObject.SetActive(currentQuestionIndex >= questions.Count - 1);
     }
 
     void UpdateProgress()
@@ -169,53 +187,55 @@ public class QuizManager : MonoBehaviour
 
     public void NextQuestion()
     {
+        SaveCurrentAnswer();
 
-        string selected = null;
-        foreach (var t in optionToggles)
+        // Tampilkan jawaban yang benar (teks hijau)
+        ShowCorrectAnswer();
+
+        // Nonaktifkan tombol selama jeda 2 detik
+        nextButton.interactable = false;
+        prevButton.interactable = false;
+        submitButton.interactable = false;
+
+        // Tunggu 2 detik, lalu pindah ke soal berikutnya
+        StartCoroutine(NextQuestionAfterDelay(2f));
+    }
+
+
+    // TAMBAHKAN method baru ini di dalam class QuizManager
+    private System.Collections.IEnumerator NextQuestionAfterDelay(float delay)
+{
+        yield return new WaitForSeconds(delay);
+
+        // Aktifkan objek
+        foreach (GameObject obj in objectsToEnable)
         {
-            if (t.isOn)
-            {
-                var lbl = t.GetComponentInChildren<TextMeshProUGUI>();
-                if (lbl != null) selected = lbl.text;
-                break;
-            }
+            if (obj != null)
+                obj.SetActive(true);
         }
 
-        string correct = questions[currentQuestionIndex].answer;
-
-        bool wasCorrect = correctSet.Contains(currentQuestionIndex);
-        bool isNowCorrect = (selected != null && selected == correct);
-
-        if (isNowCorrect && !wasCorrect)
+        // Nonaktifkan objek
+        foreach (GameObject obj in objectsToDisable)
         {
-            score += POINT_PER_CORRECT;
-            correctSet.Add(currentQuestionIndex);
-        }
-        else if (!isNowCorrect && wasCorrect)
-        {
-            score -= POINT_PER_CORRECT;
-            correctSet.Remove(currentQuestionIndex);
+            if (obj != null)
+                obj.SetActive(false);
         }
 
+        // Aktifkan kembali tombol
+        nextButton.interactable = true;
+        prevButton.interactable = true;
+        submitButton.interactable = true;
 
+        // Reset warna label
+        // ResetOptionLabelColors();
 
-        if (selected != null)
-            selectedAnswers[currentQuestionIndex] = selected;
-        else
-            selectedAnswers.Remove(currentQuestionIndex);
-
-
+        // Pindah ke soal berikutnya
         if (currentQuestionIndex < questions.Count - 1)
         {
             currentQuestionIndex++;
             LoadQuestion();
         }
-        else
-        {
-            ShowFinishConfirmation();
-        }
-    }
-
+}
     public void PrevQuestion()
     {
         if (currentQuestionIndex > 0)
@@ -265,8 +285,18 @@ public class QuizManager : MonoBehaviour
 
     public void ShowFinishConfirmation()
     {
-        finishConfirmationPanel?.SetActive(true);
-        Debug.Log($"✅ Kuis selesai. Skor akhir: {score}");
+        SaveCurrentAnswer();
+
+        // Tampilkan jawaban benar
+        ShowCorrectAnswer();
+
+        // Nonaktifkan tombol selama jeda
+        nextButton.interactable = false;
+        prevButton.interactable = false;
+        submitButton.interactable = false;
+
+        // Tunggu 2 detik lalu tampilkan panel konfirmasi
+        StartCoroutine(ShowFinishConfirmationAfterDelay(2f));
     }
 
     public void HideFinishConfirmation()
@@ -275,32 +305,26 @@ public class QuizManager : MonoBehaviour
     }
 
     public void FinishQuiz()
-    {
-        // NextQuestion(); // <-- HAPUS INI (Saran dari perbaikan sebelumnya agar tidak double count)
-        
-        Debug.Log("✅ Quiz Finished! Reload scene…");
-        SubmitScore(score);
-        
-        // --- PERBAIKAN DI SINI ---
-        // Jangan pakai score / 5. Gunakan jumlah data di correctSet.
-        totalBenar.text = correctSet.Count.ToString(); 
-        // -------------------------
+{
+    SaveCurrentAnswer();
 
-        totalPoin.text = score.ToString();
-        resultPanel.SetActive(true);
-        StartCoroutine(ChangeSceneAfterDelay(3f));
-        
-        Debug.Log("total score = " + score);
-        
-        MarkQuizAsCompleted(IdQuest, () =>
-        {
-            Debug.Log("Quiz berhasil ditandai sebagai selesai!");
-        });
-    
+    HideFinishConfirmation();
 
+    // Isi data hasil terlebih dahulu
+    totalBenar.text = correctSet.Count.ToString();
+    totalPoin.text = score.ToString();
 
+    // Tampilkan jawaban benar pada soal terakhir
+    ShowCorrectAnswer();
 
-    }
+    // Nonaktifkan tombol selama jeda
+    nextButton.interactable = false;
+    prevButton.interactable = false;
+    submitButton.interactable = false;
+
+    // Tunggu 2 detik lalu tampilkan result panel
+    StartCoroutine(FinishQuizAfterDelay(2f));
+}
 
     private System.Collections.IEnumerator ChangeSceneAfterDelay(float delay)
     {
@@ -326,7 +350,7 @@ public class QuizManager : MonoBehaviour
                     Value = score
                 }
             },
-            
+
         };
 
         PlayFabClientAPI.AddUserVirtualCurrency(new PlayFab.ClientModels.AddUserVirtualCurrencyRequest
@@ -459,5 +483,127 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    
+    private void SaveCurrentAnswer()
+    {
+        string selected = GetSelectedAnswer();
+
+        if (selected != null)
+            selectedAnswers[currentQuestionIndex] = selected;
+        else
+            selectedAnswers.Remove(currentQuestionIndex);
+
+        EvaluateCurrentAnswer(selected);
+    }
+
+    private string GetSelectedAnswer()
+    {
+        foreach (var toggle in optionToggles)
+        {
+            if (toggle.isOn)
+            {
+                var label = toggle.GetComponentInChildren<TextMeshProUGUI>();
+                if (label != null)
+                    return label.text;
+            }
+        }
+
+        return null;
+    }
+
+
+    // TAMBAHKAN method baru ini di dalam class QuizManager
+    private void EvaluateCurrentAnswer(string selected)
+    {
+        string correctAnswer = questions[currentQuestionIndex].answer;
+
+        bool wasCorrect = correctSet.Contains(currentQuestionIndex);
+        bool isNowCorrect = (selected != null && selected == correctAnswer);
+
+        if (isNowCorrect && !wasCorrect)
+        {
+            score += POINT_PER_CORRECT;
+            correctSet.Add(currentQuestionIndex);
+        }
+        else if (!isNowCorrect && wasCorrect)
+        {
+            score -= POINT_PER_CORRECT;
+            correctSet.Remove(currentQuestionIndex);
+        }
+    }
+
+
+    // TAMBAHKAN method baru ini di dalam class QuizManager
+    private void ShowCorrectAnswer()
+    {
+        if (questions == null || questions.Count == 0)
+            return;
+
+        string correctAnswer = questions[currentQuestionIndex].answer;
+        string selectedAnswer = GetSelectedAnswer();
+
+        for (int i = 0; i < optionToggles.Length; i++)
+        {
+            Toggle toggle = optionToggles[i];
+
+            if (!toggle.gameObject.activeSelf)
+                continue;
+
+            var label = toggle.GetComponentInChildren<TextMeshProUGUI>();
+            if (label == null)
+                continue;
+
+            string optionText = label.text;
+
+            // Pertahankan pilihan pemain
+            if (selectedAnswer != null)
+            {
+                toggle.isOn = (optionText == selectedAnswer);
+            }
+
+            // Jawaban benar diberi warna hijau
+            if (optionText == correctAnswer)
+            {
+                label.color = Color.green;
+            }
+
+            // Nonaktifkan toggle selama 2 detik
+            toggle.interactable = false;
+        }
+    }
+
+private System.Collections.IEnumerator ShowFinishConfirmationAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    // Aktifkan kembali tombol
+    nextButton.interactable = true;
+    prevButton.interactable = true;
+    submitButton.interactable = true;
+
+    // Tampilkan panel konfirmasi selesai
+    finishConfirmationPanel?.SetActive(true);
+
+    Debug.Log($"✅ Kuis selesai. Skor akhir: {score}");
+}
+
+private System.Collections.IEnumerator FinishQuizAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    Debug.Log("✅ Quiz Finished! Reload scene…");
+
+    SubmitScore(score);
+
+    resultPanel.SetActive(true);
+
+    StartCoroutine(ChangeSceneAfterDelay(2f));
+
+    Debug.Log("total score = " + score);
+
+    MarkQuizAsCompleted(IdQuest, () =>
+    {
+        Debug.Log("Quiz berhasil ditandai sebagai selesai!");
+    });
+}
+
 }
